@@ -23,4 +23,10 @@ class Room extends Model
      */
 
     protected $primaryKey = 'uuid';
+
+    public function owners()
+    {
+        return $this->belongsTo('App\User', 'id');
+    }
+
 }
