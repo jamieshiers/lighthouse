@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Room;
+use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -19,5 +18,4 @@ class RoomController extends Controller
 
         return view('rooms.index')->with('rooms', $rooms);
     }
-
 }

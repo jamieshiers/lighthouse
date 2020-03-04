@@ -7,26 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     /**
-     * The fields that are mass assignable
+     * The fields that are mass assignable.
      *
      * @var array
      */
-
     protected $fillable = [
-        'uuid', 'name', 'short_name', 'Capacity'
+        'uuid', 'name', 'short_name', 'Capacity',
     ];
 
     /**
-     * Setting the non-default primary key
+     * Setting the non-default primary key.
      *
      * @var string
      */
-
     protected $primaryKey = 'uuid';
 
     public function owners()
     {
-        return $this->belongsTo('App\User', 'id');
+        return $this->belongsTo(\App\User::class, 'id');
     }
-
 }
