@@ -19,7 +19,7 @@
                 <td>{{ $room->short_name }}</td>
                 <td>{{ $room->name }}</td>
                 <td>{{ $room->capacity }}</td>
-                <td>{{ $room->owner }}</td>
+                <td>{{ $room->owners->name }}</td>
                 <td>
                     <button class="ml-5 flex items-center pl-2 pr-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-bl-md hover:bg-gray-700">Edit</button>
                 </td>
