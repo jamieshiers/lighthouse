@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hotel Information Planning System</title>
+    <title>Lighthouse | H.I.P.S</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -14,9 +14,9 @@
 <body class="antialiased font-sans bg-gray-200 h-screen">
 <div class="container mx-auto h-full flex justify-center items-center">
     <div class="w-1/3">
-
         <div class="border-teal-600 p-8 border-t-8 border bg-white mb-6 rounded-lg shadow-lg" >
-            <!-- <h1 class="font-light text-3xl mb-6 text-center">Login</h1> -->
+            <!--<img src="{{ asset('images/logo.png') }}" alt="Logo"  width="70px" class="container justify-center items-center"> -->
+            <h1 class="font-light text-3xl mb-6 text-center">Lighthouse</h1>
             <form method="post" action="{{ route('login') }}">
                 @csrf
                 <div class="mb-4">
@@ -59,6 +59,9 @@
                     type="submit">{{__('Login') }}</button>
             </form>
         </div>
+        <p class="text-center text-gray-500 text-xs">
+            &copy; 2020 Jamie Shiers. All rights reserved.
+        </p>
     </div>
 </div>
 
