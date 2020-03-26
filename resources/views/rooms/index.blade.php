@@ -17,6 +17,7 @@
                 <th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Short Name</th>
                 <th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Full Name</th>
                 <th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Capacity</th>
+                <th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Category</th>
                 <th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Owner</th>
                 <th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Actions</th>
             </tr>
@@ -26,6 +27,7 @@
                 <tr class="hover:bg-blue-100  border-t border-gray-200 overflow-hidden">
                     <td><span class="py-4 px-6 flex items-center">{{ $room->short_name }}</span></td>
                     <td><span class="py-4 px-6 flex items-center">{{ $room->name }}</span></td>
+                    <td><span class="py-4 px-6 flex items-center">{{ $room->capacity }}</span></td>
                     <td><span class="py-4 px-6 flex items-center">{{ $room->capacity }}</span></td>
                     <td><span class="py-4 px-6 flex items-center">{{ $room->owners->name }}</span></td>
                     <td>

@@ -16,4 +16,9 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/rooms', 'RoomController@index')->name('room');
+
+Route::prefix('settings')->group(function () {
+   Route::get('venues', 'RoomController@index')->name('venues');
+});
+
+
