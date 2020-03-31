@@ -20,6 +20,8 @@ class CreateRoomsTable extends Migration
             $table->text('name');
             $table->text('short_name');
             $table->integer('capacity');
+            $table->text('category');
+            $table->text('ship');
             $table->timestamps();
         });
     }

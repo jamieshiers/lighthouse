@@ -14,6 +14,8 @@ $factory->define(App\Room::class, function (Faker $faker) {
         'user_id' => $faker->randomDigitNotNull,
         'name' => $faker->name,
         'short_name' => $faker->name,
-        'Capacity' => $faker->numberBetween($min = 0, $max = 850),
+        'capacity' => $faker->numberBetween($min = 0, $max = 850),
+        'category' => $faker->name,
+        'ship' => 'Ventura',
     ];
 });

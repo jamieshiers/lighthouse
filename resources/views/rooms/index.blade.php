@@ -18,6 +18,7 @@
                 <th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Full Name</th>
                 <th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Capacity</th>
                 <th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Category</th>
+                <th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Ship</th>
                 <th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Owner</th>
                 <th class="px-6 py-3 text-gray-500 font-bold tracking-wider uppercase text-xs">Actions</th>
             </tr>
@@ -28,7 +29,8 @@
                     <td><span class="py-4 px-6 flex items-center">{{ $room->short_name }}</span></td>
                     <td><span class="py-4 px-6 flex items-center">{{ $room->name }}</span></td>
                     <td><span class="py-4 px-6 flex items-center">{{ $room->capacity }}</span></td>
-                    <td><span class="py-4 px-6 flex items-center">{{ $room->capacity }}</span></td>
+                    <td><span class="py-4 px-6 flex items-center">{{ $room->category }}</span></td>
+                    <td><span class="py-4 px-6 flex items-center">{{ $room->ship }}</span></td>
                     <td><span class="py-4 px-6 flex items-center">{{ $room->owners->name }}</span></td>
                     <td>
                         <button class="flex items-center pl-2 pr-4 py-2 ml-6 text-sm text-white bg-blue-700 rounded hover:bg-blue-800">

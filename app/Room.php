@@ -12,7 +12,7 @@ class Room extends Model
      * @var array
      */
     protected $fillable = [
-        'uuid', 'name', 'short_name', 'Capacity',
+        'name', 'short_name', 'Capacity', 'Category', 'Ship',
     ];
 
     /**
