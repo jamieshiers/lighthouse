@@ -18,7 +18,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('settings')->group(function () {
-   Route::get('venues', 'RoomController@index')->name('venues');
+   Route::resource('venues', 'RoomController');
+   Route::resource('users', 'settings\UserController');
 });
 
 

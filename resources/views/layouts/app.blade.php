@@ -12,7 +12,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="h-screen overflow-hidden flex items-center justify-center text-gray-700">
+<body class="flex items-center justify-center text-gray-700 text-sm">
     <div class="font-sans bg-gray-200 flex flex-col min-h-screen w-full">
 
         <div class="bg-blue-800">
