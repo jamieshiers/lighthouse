@@ -15,15 +15,13 @@ class Room extends Model
         'name', 'short_name', 'Capacity', 'Category', 'Ship',
     ];
 
-    /**
-     * Setting the non-default primary key.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'uuid';
-
     public function owners()
     {
         return $this->belongsTo(\App\User::class, 'user_id', 'id');
+    }
+
+    public function ships()
+    {
+        return $this->belongsTo(\App\Fleet::class, 'ship_id', 'id');
     }
 }

@@ -21,8 +21,12 @@ class CreateRoomsTable extends Migration
             $table->text('short_name');
             $table->integer('capacity');
             $table->text('category');
-            $table->text('ship');
+            $table->bigInteger('ship_id')->unsigned();
             $table->timestamps();
+        });
+
+        Schema::table('rooms', function (Blueprint $table) {
+            $table->foreign('ship_id')->references('id')->on('fleets');
         });
     }
 
