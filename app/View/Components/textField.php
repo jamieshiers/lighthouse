@@ -15,21 +15,21 @@ class textField extends Component
 
     /**
      * Text Field name
-     *@var string
+     * @var string
      */
     public $name;
 
     /**
      * Text field Type
-     *@var string
+     * @var string
      */
-        public $type;
+    public $type;
 
     /**
      *  Text Field Placeholder
      * @var String
      */
-        public $placeholder;
+    public $placeholder;
 
 
     /**
@@ -39,7 +39,7 @@ class textField extends Component
      */
     public function __construct($label, $name, $placeholder, $type)
     {
-        $this->label =$label;
+        $this->label = $label;
         $this->name = $name;
         $this->placeholder = $placeholder;
         $this->type = $type;
