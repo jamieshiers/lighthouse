@@ -12,7 +12,9 @@ class Fleet extends Model
      * @var array
      */
     protected $fillable = [
-        'fleet', 'ship_name', 'ship_code'
+        'fleet',
+        'ship_name',
+        'ship_code'
     ];
 
     public function venues()

@@ -13,21 +13,27 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rooms', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->text('name');
-            $table->text('short_name');
-            $table->integer('capacity');
-            $table->text('category');
-            $table->bigInteger('ship_id')->unsigned();
-            $table->timestamps();
-        });
+        Schema::create(
+            'rooms',
+            function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('user_id')->unsigned();
+                $table->foreign('user_id')->references('id')->on('users');
+                $table->text('name');
+                $table->text('short_name');
+                $table->integer('capacity');
+                $table->text('category');
+                $table->bigInteger('ship_id')->unsigned();
+                $table->timestamps();
+            }
+        );
 
-        Schema::table('rooms', function (Blueprint $table) {
-            $table->foreign('ship_id')->references('id')->on('fleets');
-        });
+        Schema::table(
+            'rooms',
+            function (Blueprint $table) {
+                $table->foreign('ship_id')->references('id')->on('fleets');
+            }
+        );
     }
 
     /**

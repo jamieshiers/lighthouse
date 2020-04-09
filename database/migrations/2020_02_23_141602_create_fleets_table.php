@@ -13,13 +13,16 @@ class CreateFleetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fleets', function (Blueprint $table) {
-            $table->bigIncrements('id')->unsigned();
-            $table->text('fleet');
-            $table->text('ship_name');
-            $table->text('ship_code');
-            $table->timestamps();
-        });
+        Schema::create(
+            'fleets',
+            function (Blueprint $table) {
+                $table->bigIncrements('id')->unsigned();
+                $table->text('fleet');
+                $table->text('ship_name');
+                $table->text('ship_code');
+                $table->timestamps();
+            }
+        );
     }
 
     /**
