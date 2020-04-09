@@ -7,7 +7,6 @@ use Faker\Generator as Faker;
 use Ramsey\Uuid\Uuid;
 
 $factory->define(App\Room::class, function (Faker $faker) {
-
     static $user_id;
 
     return [

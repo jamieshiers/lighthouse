@@ -23,13 +23,13 @@ class textField extends Component
      * Text field Type
      *@var string
      */
-        public $type;
+    public $type;
 
     /**
      *  Text Field Placeholder
      * @var String
      */
-        public $placeholder;
+    public $placeholder;
 
 
     /**
