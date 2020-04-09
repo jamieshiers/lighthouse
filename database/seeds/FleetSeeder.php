@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Fleet;
+use Illuminate\Database\Seeder;
 
 class FleetSeeder extends Seeder
 {

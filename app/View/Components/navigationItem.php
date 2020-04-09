@@ -7,8 +7,8 @@ use Illuminate\View\Component;
 class navigationItem extends Component
 {
     /**
-     * The Url
-     * @var String
+     * The Url.
+     * @var string
      */
     public $href;
 

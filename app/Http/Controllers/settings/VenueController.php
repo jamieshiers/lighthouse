@@ -14,7 +14,7 @@ class VenueController extends Controller
     }
 
     /**
-     *  Display a listing of all the Venues
+     *  Display a listing of all the Venues.
      *
      * @return \Illuminate\Http\Response
      */
