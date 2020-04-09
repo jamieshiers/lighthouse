@@ -1,7 +1,6 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-
 use App\Room;
 use Faker\Generator as Faker;
 use Ramsey\Uuid\Uuid;

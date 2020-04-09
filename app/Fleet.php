@@ -14,7 +14,7 @@ class Fleet extends Model
     protected $fillable = [
         'fleet',
         'ship_name',
-        'ship_code'
+        'ship_code',
     ];
 
     public function venues()

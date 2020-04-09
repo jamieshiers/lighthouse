@@ -7,30 +7,29 @@ use Illuminate\View\Component;
 class textField extends Component
 {
     /**
-     * Label for the text field
+     * Label for the text field.
      *
      * @var string
      */
     public $label;
 
     /**
-     * Text Field name
+     * Text Field name.
      * @var string
      */
     public $name;
 
     /**
-     * Text field Type
+     * Text field Type.
      * @var string
      */
     public $type;
 
     /**
-     *  Text Field Placeholder
-     * @var String
+     *  Text Field Placeholder.
+     * @var string
      */
     public $placeholder;
-
 
     /**
      * Create a new component instance.
