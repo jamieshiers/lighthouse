@@ -1,0 +1,15 @@
+created:
+    - database/migrations/2020_04_10_114703_create_promotions_table.php
+    - app/Promotion.php
+    - database/factories/PromotionFactory.php
+    - app/Http/Controllers/PromotionsController.php
+    - app/Http/Requests/PromotionStoreRequest.php
+    - resources/views/promtion/index.blade.php
+    - tests/Feature/Http/Controllers/PromotionsControllerTest.php
+updated:
+    - routes/web.php
+models:
+    Fleet: { fleet: text, ship_name: text, ship_code: text }
+    Room: { user_id: 'integer unsigned', name: text, short_name: text, capacity: integer, category: text, ship_id: 'biginteger unsigned' }
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
+    Promotion: { title: 'string:100', subhead: 'string:120', content: longtext, image: 'string:400', category: 'string:400' }

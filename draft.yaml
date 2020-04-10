@@ -1,0 +1,18 @@
+models:
+  Promotion:
+    title: string:100
+    subhead: string:120
+    content: longtext
+    image: string:400
+    category: string:400
+
+controllers:
+  Promotions:
+    index:
+      query: all
+      render: promtion.index with:promotions
+
+    store:
+      validate: title, subhead, content, image, category
+      save: promotion
+      redirect: promotion.index

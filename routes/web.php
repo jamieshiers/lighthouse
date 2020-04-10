@@ -21,3 +21,6 @@ Route::prefix('settings')->group(function () {
     Route::resource('venues', 'settings\VenueController');
     Route::resource('users', 'settings\UserController');
 });
+
+
+Route::resource('promotions', 'PromotionsController')->only('index', 'store');
