@@ -24,3 +24,4 @@ Route::prefix('settings')->group(function () {
 
 
 Route::resource('promotions', 'PromotionsController')->only('index', 'store');
+
