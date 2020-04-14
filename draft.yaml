@@ -6,6 +6,51 @@ models:
     image: string:400
     category: string:400
 
+  Port:
+    name: string:400
+    country_id: id:country
+    image: string:250
+    description: longtext
+    currency_symbol:
+
+  Country:
+    iso: string:2
+    name: string:80
+    nice_name: string:80
+    iso3: string:3
+    numcode: integer:3
+    phonecode: integer:8
+    emergency: string:20
+    currency_name: string:50
+    currency_symbol: string:1
+
+  Agent:
+    port_id: id:port
+    name: string:100
+    business_name: string:100
+    primary_contact_number: string:50
+    secondary_contact_number: string:50
+    email: string:100
+    address: string:250
+
+  Itinerary:
+    cruise_number: string:10
+    day_number: integer:5
+    port_id: id:port
+    dress_id: id:dresscode
+    arrival: nullable timestamp
+    departure: nullable timestamp
+    offset: nullable integer:3
+    sunrise: nullable timestamp
+    sunset: nullable timestamp
+    weather: nullable string:200
+
+  DressCode:
+    name: string:100
+    short_description: text
+    long_description: text
+    image: string:250
+
 controllers:
   Promotions:
     index:
