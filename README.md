@@ -46,6 +46,13 @@ Guests often want to plan Weddings, special events or other gatherings onboard. 
 - [ ] Sea State
 - [ ] Special Day management
 
+### Cruise and Day Planning
+- [ ] opening times for each of the venues, resturants, bars etc
+- [ ] meal times for each of the Resturants
+- [ ] Opening times for shops
+- [ ] templates for sea days, port days etc to speed up planning
+- [ ] overall day view for public venues on the ship
+
 ### User Management
 - [ ] Add and delete users
 - [ ] Manage user permissions
