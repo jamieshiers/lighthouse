@@ -16,12 +16,15 @@ class Itinerary extends Model
         'day_number',
         'port_id',
         'dress_id',
+        'berth',
         'arrival',
         'departure',
         'offset',
+        'clock_change_time',
         'sunrise',
         'sunset',
-        'weather',
+        'weather_description',
+        'weather_temperature',
     ];
 
     /**
@@ -33,6 +36,7 @@ class Itinerary extends Model
         'id' => 'integer',
         'port_id' => 'integer',
         'dress_id' => 'integer',
+        'weather_temperature' => 'float',
     ];
 
     /**
@@ -43,6 +47,7 @@ class Itinerary extends Model
     protected $dates = [
         'arrival',
         'departure',
+        'clock_change_time',
         'sunrise',
         'sunset',
     ];

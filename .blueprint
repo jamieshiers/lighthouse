@@ -1,24 +1,33 @@
 created:
-    - database/migrations/2020_04_14_145430_create_promotions_table.php
-    - database/migrations/2020_04_14_145431_create_ports_table.php
-    - database/migrations/2020_04_14_145432_create_countries_table.php
-    - database/migrations/2020_04_14_145433_create_agents_table.php
-    - database/migrations/2020_04_14_145434_create_itineraries_table.php
-    - database/migrations/2020_04_14_145435_create_dress_codes_table.php
-    - app/Promotion.php
+    - database/migrations/2020_04_15_082708_create_activities_table.php
+    - database/migrations/2020_04_15_082709_create_day_activities_table.php
+    - database/migrations/2020_04_15_082710_create_ports_table.php
+    - database/migrations/2020_04_15_082711_create_countries_table.php
+    - database/migrations/2020_04_15_082712_create_agents_table.php
+    - database/migrations/2020_04_15_082713_create_itineraries_table.php
+    - database/migrations/2020_04_15_082714_create_dress_codes_table.php
+    - app/Activity.php
+    - app/DayActivity.php
     - app/Port.php
     - app/Country.php
     - app/Agent.php
     - app/Itinerary.php
     - app/DressCode.php
-    - database/factories/PromotionFactory.php
+    - database/factories/ActivityFactory.php
+    - database/factories/DayActivityFactory.php
     - database/factories/PortFactory.php
     - database/factories/CountryFactory.php
     - database/factories/AgentFactory.php
     - database/factories/ItineraryFactory.php
     - database/factories/DressCodeFactory.php
-    - app/Http/Controllers/PromotionsController.php
-    - tests/Feature/Http/Controllers/PromotionsControllerTest.php
+    - app/Http/Controllers/ActivityController.php
+    - app/Http/Controllers/AgentController.php
+    - app/Http/Requests/ActivityStoreRequest.php
+    - resources/views/activity/index.blade.php
+    - resources/views/activity/create.blade.php
+    - resources/views/agent/index.blade.php
+    - tests/Feature/Http/Controllers/ActivityControllerTest.php
+    - tests/Feature/Http/Controllers/AgentControllerTest.php
 updated:
     - routes/web.php
 models:
@@ -27,7 +36,9 @@ models:
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
     Promotion: { title: 'string:100', subhead: 'string:120', content: longtext, image: 'string:400', category: 'string:400' }
     Port: { name: 'string:400', country_id: 'id:country', image: 'string:250', description: longtext }
-    Country: { iso: 'string:2', name: 'string:80', nice_name: 'string:80', iso3: 'string:3', numcode: 'integer:3', phonecode: 'integer:8', emergency: 'string:20', currency_name: 'string:50', currency_symbol: 'string:1' }
+    Country: { iso: 'string:2', name: 'string:80', nice_name: 'string:80', iso3: 'string:3', numcode: 'unsigned integer', phonecode: 'unsigned integer', emergency: 'string:20', currency_name: 'string:50', currency_symbol: 'string:1' }
     Agent: { port_id: 'id:port', name: 'string:100', business_name: 'string:100', primary_contact_number: 'string:50', secondary_contact_number: 'string:50', email: 'string:100', address: 'string:250' }
-    Itinerary: { cruise_number: 'string:10', day_number: 'integer:5', port_id: 'id:port', dress_id: 'id:dresscode', arrival: 'nullable timestamp', departure: 'nullable timestamp', offset: 'nullable integer:3', sunrise: 'nullable timestamp', sunset: 'nullable timestamp', weather: 'nullable string:200' }
+    Itinerary: { cruise_number: 'string:10', day_number: 'integer:5', port_id: 'id:port', dress_id: 'id:dresscode', berth: 'nullable string:100', arrival: 'nullable timestamp', departure: 'nullable timestamp', offset: 'nullable integer:3', clock_change_time: dateTimeTz, sunrise: 'nullable timestamp', sunset: 'nullable timestamp', weather_description: 'nullable string:50', weather_temperature: 'nullable float' }
     DressCode: { name: 'string:100', short_description: text, long_description: text, image: 'string:250' }
+    Activity: { title: 'string:100', subhead: 'string:120', description: longtext, image: 'string:400', category: 'string:400' }
+    DayActivity: { promotion_id: 'id:promotion', venue_id: 'id:room', start: dateTimeTz, finish: dateTimeTz, show_end_time: bool, bandsheet: bool, horizon: bool }

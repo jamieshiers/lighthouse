@@ -16,15 +16,18 @@ class CreateItinerariesTable extends Migration
         Schema::create('itineraries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('cruise_number', 10);
-            $table->integer('day_number', 5);
+            $table->integer('day_number')->unsigned();
             $table->unsignedBigInteger('port_id');
             $table->unsignedBigInteger('dress_id');
+            $table->string('berth', 100)->nullable();
             $table->timestamp('arrival')->nullable();
             $table->timestamp('departure')->nullable();
-            $table->integer('offset', 3)->nullable();
+            $table->integer('offset')->nullable()->unsigned();
+            $table->dateTimeTz('clock_change_time');
             $table->timestamp('sunrise')->nullable();
             $table->timestamp('sunset')->nullable();
-            $table->string('weather', 200)->nullable();
+            $table->string('weather_description', 50)->nullable();
+            $table->float('weather_temperature')->nullable();
             $table->timestamps();
         });
     }

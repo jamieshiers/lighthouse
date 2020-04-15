@@ -19,8 +19,8 @@ class CreateCountriesTable extends Migration
             $table->string('name', 80);
             $table->string('nice_name', 80);
             $table->string('iso3', 3);
-            $table->integer('numcode', 3);
-            $table->integer('phonecode', 8);
+            $table->integer('numcode')->unsigned();
+            $table->integer('phonecode')->unsigned();
             $table->string('emergency', 20);
             $table->string('currency_name', 50);
             $table->string('currency_symbol', 1);
