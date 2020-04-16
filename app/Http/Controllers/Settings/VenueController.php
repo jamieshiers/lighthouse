@@ -49,7 +49,7 @@ class VenueController extends Controller
             'short_name' => $request->short_name,
             'capacity' => $request->capacity,
             'category' => $request->category,
-            'ship_id' => "1",
+            'ship_id' => "$request->ship",
         ]);
 
         return redirect()->route('venues.index');

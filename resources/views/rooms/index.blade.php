@@ -29,7 +29,7 @@
                     <td><span class="py-4 px-6 flex items-center">{{ $room->name }}</span></td>
                     <td><span class="py-4 px-6 flex items-center">{{ $room->capacity }}</span></td>
                     <td><span class="py-4 px-6 flex items-center">{{ $room->category }}</span></td>
-                    <td><span class="py-4 px-6 flex items-center">{{ $room->ship }}</span></td>
+                    <td><span class="py-4 px-6 flex items-center">{{ $room->ships->ship_name }}</span></td>
                     <td><span class="py-4 px-6 flex items-center">{{ $room->owners->name }}</span></td>
                     <td>
                         <button class="flex items-center pl-2 pr-4 py-2 ml-6 text-sm text-white bg-blue-700 rounded hover:bg-blue-800">

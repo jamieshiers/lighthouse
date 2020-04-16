@@ -49,13 +49,14 @@
             :required="true"
             type="number"
         />
-        <x-text-field
-            label="Category"
-            placeholder="Public Venue"
-            name="category"
-            :required="true"
-            type="text"
-        />
+
+        <label for="category">Category</label>
+        <select name="category" id="category">
+            <option value="guest_venue">Guest Venue</option>
+            <option value="crew_venue">Crew Venue</option>
+            <option value="guest_cabin">Guest Cabin</option>
+            <option value="crew_cabin">Crew Cabin</option>
+        </select>
         <button
             class="font-bold uppercase tracking-wide text-white bg-teal-600 hover:bg-teal-800 rounded py-2 px-4 w-full mt-2"
             type="submit">Create New Venue
