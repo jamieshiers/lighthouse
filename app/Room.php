@@ -12,7 +12,7 @@ class Room extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'short_name', 'Capacity', 'Category', 'Ship',
+        'user_id', 'name', 'short_name', 'capacity', 'category', 'ship_id',
     ];
 
     public function owners()
