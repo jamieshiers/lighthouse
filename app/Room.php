@@ -15,6 +15,13 @@ class Room extends Model
         'user_id', 'name', 'short_name', 'capacity', 'category', 'ship_id',
     ];
 
+    public static function search($query)
+    {
+        return empty($query) ? static::query()
+            : static::where('short_name', 'like', '%' . $query . '%')
+                ->orWhere('fleets.ship_name', 'like', '%' . $query . '%');
+    }
+
     public function owners()
     {
         return $this->belongsTo(\App\User::class, 'user_id', 'id');

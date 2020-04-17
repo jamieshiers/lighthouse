@@ -23,9 +23,7 @@ class VenueController extends Controller
      */
     public function index()
     {
-        $rooms = room::get();
-
-        return view('rooms.index')->with('rooms', $rooms);
+       return view('rooms.index');
     }
 
     /**

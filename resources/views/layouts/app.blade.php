@@ -11,22 +11,24 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @livewireStyles
 </head>
 <body class="flex items-center justify-center text-gray-700 text-sm">
-    <div class="font-sans bg-gray-200 flex flex-col min-h-screen w-full">
-        <!-- Header -->
-        @include('layouts.partials.header')
+<div class="font-sans bg-gray-200 flex flex-col min-h-screen w-full">
+    <!-- Header -->
+@include('layouts.partials.header')
 
-        <!-- Main Navigation -->
-        @include('layouts.partials.navigation')
+<!-- Main Navigation -->
+    @include('layouts.partials.navigation')
 
-        <main class="flex-grow container mx-auto pt-6 pb-8">
-            <div class="bg-white border-t border-b sm:border-l sm:border-r sm:rounded shadow mb-6">
-                <div class="p-6">
-                    @yield('content')
-                </div>
+    <main class="flex-grow container mx-auto pt-6 pb-8">
+        <div class="bg-white border-t border-b sm:border-l sm:border-r sm:rounded shadow mb-6">
+            <div class="p-6">
+                @yield('content')
             </div>
-        </main>
-    </div>
-</>
+        </div>
+    </main>
+</div>
+@livewireScripts
+</body>
 </html>
