@@ -11,7 +11,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @livewireStyles
+    <livewire:styles>
 </head>
 <body class="flex items-center justify-center text-gray-700 text-sm">
 <div class="font-sans bg-gray-200 flex flex-col min-h-screen w-full">
@@ -29,6 +29,6 @@
         </div>
     </main>
 </div>
-@livewireScripts
+<livewire:scripts>
 </body>
 </html>
