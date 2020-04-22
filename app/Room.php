@@ -31,4 +31,10 @@ class Room extends Model
     {
         return $this->belongsTo(\App\Fleet::class, 'ship_id', 'id');
     }
+
+    public function ScopeVentura($query)
+    {
+        return $query->where('ship_id', '=', 6);
+    }
+
 }

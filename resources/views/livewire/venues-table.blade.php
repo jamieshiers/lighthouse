@@ -19,6 +19,7 @@
                 <x:heroicon-o-search class="text-gray-400 h-4 w-4 fill current"/>
             </button>
         </div>
+        @can('create venues')
         <div>
             <a href="{{ route('venues.create') }}"
                class="w-1/4 flex md:w-auto items-center pl-2 pr-2 py-2  text-sm text-white bg-green-400 rounded hover:bg-green-600">
@@ -26,6 +27,7 @@
                 <span class="pl-2">Add Venue</span>
             </a>
         </div>
+        @endcan
     </div>
     <table class="w-full whitespace-no-wrap overflow-hidden">
         <thead class="bg-blue-800">
