@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Room extends Model
 {
@@ -32,9 +33,12 @@ class Room extends Model
         return $this->belongsTo(\App\Fleet::class, 'ship_id', 'id');
     }
 
-    public function ScopeVentura($query)
+    public function ScopeVenues($query)
     {
-        return $query->where('ship_id', '=', 6);
+        $id = Auth::user()->ship_id;
+
+        return $query->where('ship_id', '=', $id)->with('ships', 'owners');
+
     }
 
 }

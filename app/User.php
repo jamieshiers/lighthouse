@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'ship_id',
     ];
 
     /**
@@ -42,8 +43,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getShipNameAttribute()
+    {
+        return $this->Ship()->ship_name;
+    }
+
     public function Rooms()
     {
         $this->hasMany(\App\Room::class);
+    }
+
+    public function Ship()
+    {
+        $this->belongsTo(\App\Fleet::class, 'ship_id', 'id');
     }
 }

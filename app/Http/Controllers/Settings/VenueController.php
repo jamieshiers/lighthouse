@@ -24,8 +24,6 @@ class VenueController extends Controller
      */
     public function index()
     {
-        //Auth::user()->givePermissionTo('create venues');
-
         return view('rooms.index');
     }
 

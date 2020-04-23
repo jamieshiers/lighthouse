@@ -21,4 +21,9 @@ class Fleet extends Model
     {
         return $this->hasMany(App\Room::class);
     }
+
+    public function users()
+    {
+        $this->hasmany(App\User::class);
+    }
 }

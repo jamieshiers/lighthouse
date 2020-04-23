@@ -28,19 +28,9 @@ class VenuesTable extends Component
     public function render()
     {
         return view('livewire.venues-table', [
-            'rooms' => \App\Room::search($this->search)
-                ->join('fleets', 'fleets.id', '=', 'rooms.ship_id')
-                ->join('users', 'users.id', '=', 'rooms.user_id')
-                ->select(
-                    'rooms.short_name as short_name',
-                    'rooms.name as name',
-                    'rooms.capacity as capacity',
-                    'rooms.category as category',
-                    'fleets.ship_name as ship_name',
-                    'users.name as user_name'
-                )
+            'rooms' => \App\Room::Venues()
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-                ->paginate($this->perPage),
+                ->paginate($this->perPage)
         ]);
     }
 }
