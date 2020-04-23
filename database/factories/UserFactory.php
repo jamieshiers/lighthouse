@@ -21,6 +21,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
+        'ship_id' => $faker->numberBetween($min = 1, $max = 10),
         'password' => '$2y$10$UEhSapdRZ5oSGK748CRSKe/Wp/lVgm2jj0Y8.eq.FPVRsgacMlKuW', // password
         'remember_token' => Str::random(10),
     ];
