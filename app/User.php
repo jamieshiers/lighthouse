@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -19,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'ship_id',
     ];
 
     /**
@@ -40,8 +43,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getShipNameAttribute()
+    {
+        return $this->Ship()->ship_name;
+    }
+
     public function Rooms()
     {
         $this->hasMany(\App\Room::class);
+    }
+
+    public function Ship()
+    {
+        $this->belongsTo(\App\Fleet::class, 'ship_id', 'id');
     }
 }

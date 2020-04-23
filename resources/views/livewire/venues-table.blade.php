@@ -2,30 +2,28 @@
     <div class="bg-white flex  py-4 items-center justify-between border-b border-gray-200 ">
         <div>
             <div class="inline-block relative ">
-                <select wire:model="perPage" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                <select wire:model="perPage"
+                        class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                     <option>10</option>
                     <option>15</option>
                     <option>25</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                    </svg>
                 </div>
             </div>
         </div>
-        <div class="relative">
-            <input class="border-gray-300 border-2 bg-white h-10 px-5 pr-16 rounded-lg text-sm foucs:outline-none"
-                   wire:model="search"  type="search" placeholder="Search Venues...">
-            <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
-                <x:heroicon-o-search class="text-gray-400 h-4 w-4 fill current"/>
-            </button>
-        </div>
-        <div>
-            <a href="{{ route('venues.create') }}"
-               class="w-1/4 flex md:w-auto items-center pl-2 pr-2 py-2  text-sm text-white bg-green-400 rounded hover:bg-green-600">
-                <x:heroicon-o-plus-circle class="h-6 w-6 text-white"/>
-                <span class="pl-2">Add Venue</span>
-            </a>
-        </div>
+        @can('Create Venues')
+            <div>
+                <a href="{{ route('venues.create') }}"
+                   class="w-1/4 flex md:w-auto items-center pl-2 pr-2 py-2  text-sm text-white bg-green-400 rounded hover:bg-green-600">
+                    <x:heroicon-o-plus-circle class="h-6 w-6 text-white"/>
+                    <span class="pl-2">Add Venue</span>
+                </a>
+            </div>
+        @endcan
     </div>
     <table class="w-full whitespace-no-wrap overflow-hidden">
         <thead class="bg-blue-800">
@@ -50,8 +48,9 @@
                 <td><span class="py-4 px-6 flex items-center">{{ $room->name }}</span></td>
                 <td><span class="py-4 px-6 flex items-center">{{ $room->capacity }}</span></td>
                 <td><span class="py-4 px-6 flex items-center">{{ $room->category }}</span></td>
-                <td><span class="py-4 px-6 flex items-center">{{ $room->ship_name }}</span></td>
-                <td><span class="py-4 px-6 flex items-center">{{ $room->user_name }}</span></td>
+                <td><span class="py-4 px-6 flex items-center">{{ $room->ships->ship_name }}</span></td>
+                <td><span class="py-4 px-6 flex items-center">{{ $room->owners->name }}</span></td>
+                @can('Edit Venues')
                 <td>
                     <button
                         class="flex items-center pl-2 pr-4 py-2 ml-6 text-sm text-white bg-blue-700 rounded hover:bg-blue-800">
@@ -62,6 +61,7 @@
 
                         Edit
                     </button>
+                @endcan
                 </td>
             </tr>
         @endforeach

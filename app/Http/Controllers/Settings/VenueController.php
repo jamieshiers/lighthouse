@@ -8,6 +8,7 @@ use App\Http\Requests\VenueStoreRequest;
 use App\Room;
 use App\User;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 
 class VenueController extends Controller
 {
@@ -23,7 +24,7 @@ class VenueController extends Controller
      */
     public function index()
     {
-       return view('rooms.index');
+        return view('rooms.index');
     }
 
     /**
