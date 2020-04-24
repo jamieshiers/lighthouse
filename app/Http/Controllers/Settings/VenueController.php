@@ -53,4 +53,10 @@ class VenueController extends Controller
 
         return redirect()->route('venues.index');
     }
+
+    public function show()
+    {
+
+    }
+
 }

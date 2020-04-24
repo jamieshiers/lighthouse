@@ -1,5 +1,4 @@
-<li class= "{{ \Illuminate\Support\Str::startsWith(request()->url(), $href) ? 'border-b border-blue-900' : '' }} flex -mb-px mr-8">
-    <a  href="{{ $href }}" class="no-underline text-gray-600 flex items-center py-4">
+<a class= "{{ \Illuminate\Support\Str::startsWith(request()->url(), $href) ? 'bg-gray-900' : '' }} ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+    href="{{ $href }}">
         {{ $slot  }}
-    </a>
-</li>
+</a>

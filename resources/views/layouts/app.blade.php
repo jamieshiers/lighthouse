@@ -10,25 +10,27 @@
     <title>Lighthouse | H.I.P.S</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/output.css') }}" rel="stylesheet">
     <livewire:styles>
-</head>
-<body class="flex items-center justify-center text-gray-700 text-sm">
-<div class="font-sans bg-gray-200 flex flex-col min-h-screen w-full">
+     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        </head>
+<body>
+
     <!-- Header -->
-@include('layouts.partials.header')
+    @include('layouts.partials.header')
 
-<!-- Main Navigation -->
-    @include('layouts.partials.navigation')
-
-    <main class="flex-grow container mx-auto pt-6 pb-8">
-        <div class="bg-white border-t border-b sm:border-l sm:border-r sm:rounded shadow mb-6">
-            <div class="p-6">
-                @yield('content')
+    <main class="-mt-32">
+        <div class="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
+            <!-- Replace with your content -->
+            <div class="bg-white rounded-lg shadow px-5 py-6 sm:px-6">
+                <div class="">
+                    @yield('content')
+                </div>
             </div>
+            <!-- /End replace -->
         </div>
     </main>
-</div>
+
 <livewire:scripts>
 </body>
 </html>

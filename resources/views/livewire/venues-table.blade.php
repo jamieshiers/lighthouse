@@ -1,3 +1,4 @@
+@section('title', 'Venues')
 <div>
     <div class="bg-white flex  py-4 items-center justify-between border-b border-gray-200 ">
         <div>
@@ -25,49 +26,60 @@
             </div>
         @endcan
     </div>
-    <table class="w-full whitespace-no-wrap overflow-hidden">
-        <thead class="bg-blue-800">
-        <tr class="text-left">
-            <th class="px-6 py-3 text-white font-bold tracking-wider uppercase text-xs"><a
-                    wire:click.prevent="sortBy('short_name')" role="button" href="#">Short Name</a></th>
-            <th class="px-6 py-3 text-white font-bold tracking-wider uppercase text-xs"><a
-                    wire:click.prevent="sortBy('name')" role="button" href="#">Full Name
-                    <x:heroicon-o-selector class="h-4"/>
-                </a></th>
-            <th class="px-6 py-3 text-white font-bold tracking-wider uppercase text-xs">Capacity</th>
-            <th class="px-6 py-3 text-white font-bold tracking-wider uppercase text-xs">Category</th>
-            <th class="px-6 py-3 text-white font-bold tracking-wider uppercase text-xss">Ship</th>
-            <th class="px-6 py-3 text-white font-bold tracking-wider uppercase text-xs">Owner</th>
-            <th class="px-6 py-3 text-white font-bold tracking-wider uppercase text-xs"></th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($rooms as $room)
-            <tr class="hover:bg-blue-100  border-t border-gray-200 overflow-hidden">
-                <td><span class="py-4 px-6 flex items-center">{{ $room->short_name }}</span></td>
-                <td><span class="py-4 px-6 flex items-center">{{ $room->name }}</span></td>
-                <td><span class="py-4 px-6 flex items-center">{{ $room->capacity }}</span></td>
-                <td><span class="py-4 px-6 flex items-center">{{ $room->category }}</span></td>
-                <td><span class="py-4 px-6 flex items-center">{{ $room->ships->ship_name }}</span></td>
-                <td><span class="py-4 px-6 flex items-center">{{ $room->owners->name }}</span></td>
-                @can('Edit Venues')
-                <td>
-                    <button
-                        class="flex items-center pl-2 pr-4 py-2 ml-6 text-sm text-white bg-blue-700 rounded hover:bg-blue-800">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-                        </svg>
+    <div class="flex flex-col">
+        <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+            <div
+                class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+                <table class="min-w-full">
+                    <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                            Short Name
+                        </th>
+                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                            Full Name
+                        </th>
+                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                            Capacity
+                        </th>
+                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                            Category
+                        </th>
+                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                            Ship
+                        </th>
+                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                            Owner
+                        </th>
+                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($rooms as $room)
+                        <tr class="bg-white">
+                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">{{ $room->short_name }}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">{{ $room->name }}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">{{ $room->capacity }}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">{{ $room->category }}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">{{ $room->ships->ship_name }}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">{{ $room->owners->name }}</td>
+                            @can('Edit Venues')
+                                <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
+                                <a href="{{ url('settings/venues', $room->id, '/edit') }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                            @endcan
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-                        Edit
-                    </button>
-                @endcan
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
+    <!--  <th class="px-6 py-3 text-white font-bold tracking-wider uppercase text-xs"><a wire:click.prevent="sortBy('short_name')" role="button" href="#">Short Name</a></th> -->
+
+
     </table>
-    <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+    <div class="bg-white  py-3 flex items-center justify-between ">
         <div>
             <p class="text-sm leading-5 text-gray-700">
                 Showing
