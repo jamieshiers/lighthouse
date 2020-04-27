@@ -65,7 +65,7 @@
                             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">{{ $room->owners->name }}</td>
                             @can('Edit Venues')
                                 <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                                <a href="{{ url('settings/venues', $room->id, '/edit') }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                <a href="{{ url("settings/venues/{$room->id}/edit") }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                             @endcan
                         </tr>
                     @endforeach
