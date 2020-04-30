@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Itinerary as Cruise;
 use App\Room;
-use App\Promotion;
+use App\DayPromotion as Promotion;
 
 class CruisePlanningController extends Controller
 {
@@ -20,11 +20,20 @@ class CruisePlanningController extends Controller
 
         $days = Cruise::Code($cruise)->get();
 
-        $venues = Room::OwnedVenues()->get();
+       $start = $days->first()->day_date;
+       $end = $days->last()->day_date;
 
-        $promotions =
+       
+       return view('cruisePlanning.index', [
+            'days' =>  $days,
+            'venues' => Room::OwnedVenues()->get(),
+            'promotions' => Promotion::ByDate($start, $end)->get(),
+            'title' => $cruise,
+       ]);
 
-        return view('cruisePlanning.index')->with('days', $days)->with('venues', $venues);
+        
+
+        //return view('cruisePlanning.index')->with('days', $days)->with('venues', $venues);
 
     }
 

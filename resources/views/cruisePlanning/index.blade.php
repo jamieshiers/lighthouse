@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Cruise Planning - N012')
+@section('title', 'Cruise Planning')
 
 @section('content')
 
@@ -83,10 +83,14 @@
                                 <div class="col-span-2 mt-4">
                                     <h4 class="text-base font-medium leading-6 text-blue-900">Day's Promotions</h4>
                                     <hr class="mb-2">
-                                    <p class="text-sm font-medium text-gray-600">Shopping Centre: <Span
-                                            class="text-gray-400">5.00pm-11.00pm</Span></p>
-                                    <p class="text-sm font-medium text-gray-600">Shopping Centre: <Span
-                                            class="text-gray-400">5.00pm-11.00pm</Span></p>
+                                    @foreach($promotions as $promo)
+                                    @if($day->day_date->format('Y-m-d') == $promo->start->format('Y-m-d'))
+                                    <p class="text-sm font-medium text-gray-600">{{$promo->promotion->title}}: <Span
+                                            class="text-gray-400">{{ $promo->start->format('g.ia') }} - {{ $promo->finish->format('g.ia') }} </Span></p>
+                                    @endif 
+                                    @endforeach
+                                    <a href="" class="text-indigo-600 hover:text-indigo-900 text-sm float-right">Add Promotion</a>
+                                    
                                 </div>
                                 <div class="col-span-2 mt-4">
                                     <h4 class="text-base font-medium leading-6 text-blue-900">Day's Events</h4>
@@ -104,5 +108,7 @@
             </div>
         </div>
     </div>
+
+    
 
 @endsection

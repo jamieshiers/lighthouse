@@ -14,7 +14,7 @@ class Promotion extends Model
     protected $fillable = [
         'title',
         'subhead',
-        'content',
+        'description',
         'image',
         'category',
     ];
@@ -27,4 +27,6 @@ class Promotion extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    
 }
