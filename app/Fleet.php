@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\Room;
+Use App\User;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Fleet extends Model
@@ -19,11 +22,11 @@ class Fleet extends Model
 
     public function venues()
     {
-        return $this->hasMany(App\Room::class);
+        return $this->hasMany(Room::class);
     }
 
     public function users()
     {
-        $this->hasmany(App\User::class);
+        $this->hasmany(User::class);
     }
 }
