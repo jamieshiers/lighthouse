@@ -19,8 +19,8 @@ class Room extends Model
     public static function search($query)
     {
         return empty($query) ? static::query()
-            : static::where('short_name', 'like', '%' . $query . '%')
-                ->orWhere('fleets.ship_name', 'like', '%' . $query . '%');
+            : static::where('short_name', 'like', '%'.$query.'%')
+                ->orWhere('fleets.ship_name', 'like', '%'.$query.'%');
     }
 
     public function owners()
@@ -38,7 +38,6 @@ class Room extends Model
         $id = Auth::user()->ship_id;
 
         return $query->where('ship_id', '=', $id)->with('ships', 'owners');
-
     }
 
     public function ScopeOwnedVenues($query)
@@ -47,6 +46,4 @@ class Room extends Model
 
         return $query->where('user_id', '=', $id);
     }
-
-
 }

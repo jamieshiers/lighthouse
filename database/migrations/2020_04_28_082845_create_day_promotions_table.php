@@ -33,8 +33,6 @@ class CreateDayPromotionsTable extends Migration
         });
     }
 
-    
-
     /**
      * Reverse the migrations.
      *

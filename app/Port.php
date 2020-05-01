@@ -28,7 +28,6 @@ class Port extends Model
         'country_id' => 'integer',
     ];
 
-
     public function country()
     {
         return $this->belongsTo(\App\Country::class);

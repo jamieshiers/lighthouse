@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\DressCode;
+use Illuminate\Database\Seeder;
 
 class DressCodeSeeder extends Seeder
 {
@@ -55,4 +55,3 @@ class DressCodeSeeder extends Seeder
         );
     }
 }
-
