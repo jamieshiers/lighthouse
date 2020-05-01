@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
-Use Spatie\Permission\PermissionRegistrar;
+use Spatie\Permission\PermissionRegistrar;
 
 class PermissionSeeder extends Seeder
 {
@@ -14,7 +14,6 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         //Create Ship Permisssions
@@ -50,7 +49,5 @@ class PermissionSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
         $user->assignRole($arcadia);
-
-
     }
 }

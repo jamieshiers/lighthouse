@@ -17,15 +17,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::prefix('settings')->group(function () {
     Route::resource('venues', 'settings\VenueController');
     Route::resource('users', 'settings\UserController');
 });
 
-
 Route::resource('promotions', 'PromotionsController')->only('index', 'store');
-
 
 Route::resource('activity', 'ActivityController')->only('index', 'create', 'store');
 

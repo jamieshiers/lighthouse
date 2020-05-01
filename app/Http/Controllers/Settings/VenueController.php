@@ -7,8 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\VenueStoreRequest;
 use App\Room;
 use App\User;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class VenueController extends Controller
 {
@@ -56,7 +56,5 @@ class VenueController extends Controller
 
     public function show()
     {
-
     }
-
 }
