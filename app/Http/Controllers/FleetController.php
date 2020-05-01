@@ -14,7 +14,6 @@ class FleetController extends Controller
      */
     public function index()
     {
-
     }
 
     /**

@@ -27,6 +27,4 @@ class Promotion extends Model
     protected $casts = [
         'id' => 'integer',
     ];
-
-    
 }
