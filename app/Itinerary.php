@@ -50,6 +50,7 @@ class Itinerary extends Model
         'clock_change_time',
         'sunrise',
         'sunset',
+        'day_date',
     ];
 
 
@@ -62,4 +63,10 @@ class Itinerary extends Model
     {
         return $this->belongsTo(\App\Dresscode::class);
     }
+
+    public function scopeCode($query, $cruise)
+    {
+        return $query->where('cruise_number', '=' , $cruise)->with('dress', 'port');
+    }
+
 }

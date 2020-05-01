@@ -16,6 +16,7 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/planning/{cruise}', 'CruisePlanningController@index')->name('planning');
 
 
 Route::prefix('settings')->group(function () {

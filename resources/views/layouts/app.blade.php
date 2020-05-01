@@ -13,23 +13,25 @@
     <link href="{{ asset('css/output.css') }}" rel="stylesheet">
     <livewire:styles>
      <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-        </head>
-<body>
+     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+</head>
+<body class="font-sans">
 
     <!-- Header -->
     @include('layouts.partials.header')
 
-    <main class="-mt-32">
-        <div class="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
-            <!-- Replace with your content -->
-            <div class="bg-white rounded-lg shadow px-5 py-6 sm:px-6">
-                <div class="">
-                    @yield('content')
-                </div>
+    <div class="max-w-7xl mx-auto">
+        <!-- Replace with your content -->
+        <div class="py-4    ">
+            <div>
+                @yield('content')
             </div>
-            <!-- /End replace -->
         </div>
+        <!-- /End replace -->
+    </div>
     </main>
+    </div>
+    </div>
 
 <livewire:scripts>
 </body>

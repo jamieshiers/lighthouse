@@ -41,4 +41,12 @@ class Room extends Model
 
     }
 
+    public function ScopeOwnedVenues($query)
+    {
+        $id = Auth::user()->id;
+
+        return $query->where('user_id', '=', $id);
+    }
+
+
 }

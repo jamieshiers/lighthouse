@@ -36,6 +36,6 @@ class Port extends Model
 
     public function agent()
     {
-        return $this->hasMany(\App\Agent::class)
+        return $this->hasMany(\App\Agent::class);
     }
 }
