@@ -25,7 +25,6 @@ class AddForeginKeys extends Migration
         Schema::table('agents', function (Blueprint $table) {
             $table->foreign('port_id')->references('id')->on('ports');
         });
-
     }
 
     /**

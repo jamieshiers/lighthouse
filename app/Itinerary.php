@@ -53,7 +53,6 @@ class Itinerary extends Model
         'day_date',
     ];
 
-
     public function port()
     {
         return $this->belongsTo(\App\Port::class);
@@ -66,7 +65,6 @@ class Itinerary extends Model
 
     public function scopeCode($query, $cruise)
     {
-        return $query->where('cruise_number', '=' , $cruise)->with('dress', 'port');
+        return $query->where('cruise_number', '=', $cruise)->with('dress', 'port');
     }
-
 }
