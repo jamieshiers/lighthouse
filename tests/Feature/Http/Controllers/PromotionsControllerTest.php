@@ -29,7 +29,6 @@ class PromotionsControllerTest extends TestCase
         $response->assertViewHas('promotions');
     }
 
-
     /**
      * @test
      */

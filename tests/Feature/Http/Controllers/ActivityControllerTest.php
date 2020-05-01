@@ -29,7 +29,6 @@ class ActivityControllerTest extends TestCase
         $response->assertViewHas('activity');
     }
 
-
     /**
      * @test
      */
@@ -40,7 +39,6 @@ class ActivityControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('activity.create');
     }
-
 
     /**
      * @test

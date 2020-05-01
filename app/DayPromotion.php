@@ -44,7 +44,6 @@ class DayPromotion extends Model
         'finish',
     ];
 
-
     public function promotion()
     {
         return $this->belongsTo(\App\Promotion::class);
