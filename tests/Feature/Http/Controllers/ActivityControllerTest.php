@@ -5,7 +5,6 @@ namespace Tests\Feature\Http\Controllers;
 use App\Activity;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use JMac\Testing\Traits\HttpTestAssertions;
 use Tests\TestCase;
 
 /**
@@ -13,7 +12,7 @@ use Tests\TestCase;
  */
 class ActivityControllerTest extends TestCase
 {
-    use HttpTestAssertions, RefreshDatabase, WithFaker;
+    use RefreshDatabase, WithFaker;
 
     /**
      * @test
