@@ -12,7 +12,6 @@ use Tests\TestCase;
  */
 class PromotionsControllerTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
 
     /**
      * @test

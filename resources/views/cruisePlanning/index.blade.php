@@ -4,6 +4,33 @@
 
 @section('content')
 
+<main
+      class="mx-auto max-w-4xl bg-gray-200 h-screen"
+      x-data="{ 'dialogOpen': false }"
+      x-init="fetch('{{route('venues.create')}}').then(response => response.text()).then(data => this.html = data)"
+      @keydown.escape="dialogOpen = false"
+>
+  
+
+    <!-- overlay -->
+    <div
+        class="overflow-auto"
+        style="background-color: rgba(0,0,0,0.5)"
+        x-show="dialogOpen"
+        :class="{ 'absolute inset-0 z-10 flex items-start justify-center': dialogOpen }"
+    >
+      <!-- dialog -->
+      <div class="bg-white shadow-2xl m-4 sm:m-8" x-show="dialogOpen" @click.away="dialogOpen = false">
+          <div class="flex justify-between items-center border-b p-2 text-xl">
+              <h6 class="text-xl font-bold">Add New Promotion</h6>
+              <button type="button" @click="dialogOpen = false">✖</button>
+          </div>
+        <div x-html="this.html"></div>
+      </div><!-- /dialog -->
+    </div><!-- /overlay -->
+
+  </section>
+
     <div>
         <div class="md:grid md:grid-cols-4 md:gap-6">
             <div class="md:col-span-1">
@@ -89,7 +116,7 @@
                                             class="text-gray-400">{{ $promo->start->format('g.ia') }} - {{ $promo->finish->format('g.ia') }} </Span></p>
                                     @endif 
                                     @endforeach
-                                    <a href="" class="text-indigo-600 hover:text-indigo-900 text-sm float-right">Add Promotion</a>
+                                    <button type="button" class="border p-2 bg-white hover:border-gray-500" @click="dialogOpen = true">Add Promotion</button>
                                     
                                 </div>
                                 <div class="col-span-2 mt-4">
@@ -108,6 +135,9 @@
             </div>
         </div>
     </div>
+    </main>
+
+
 
     
 
