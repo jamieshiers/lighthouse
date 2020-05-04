@@ -23,6 +23,8 @@ Route::prefix('settings')->group(function () {
     Route::resource('users', 'settings\UserController');
 });
 
+Route::livewire('/addPromotion', 'addPromotion')->name('promotion.add');
+
 Route::resource('promotions', 'PromotionsController')->only('index', 'store');
 
 Route::resource('activity', 'ActivityController')->only('index', 'create', 'store');

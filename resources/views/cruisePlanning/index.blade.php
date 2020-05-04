@@ -5,9 +5,9 @@
 @section('content')
 
 <main
-      class="mx-auto max-w-4xl bg-gray-200 h-screen"
+      
       x-data="{ 'dialogOpen': false }"
-      x-init="fetch('{{route('venues.create')}}').then(response => response.text()).then(data => this.html = data)"
+      x-init="fetch('{{route('promotion.add')}}').then(response => response.text()).then(data => this.html = data)"
       @keydown.escape="dialogOpen = false"
 >
   
