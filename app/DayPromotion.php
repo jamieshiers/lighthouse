@@ -16,11 +16,16 @@ class DayPromotion extends Model
         'promotion_id',
         'venue_id',
         'user_id',
+        'expected_revenue',
+        'achieved_revenue',
+        'uptake',
+        'max_number',
         'start',
         'finish',
         'show_end_time',
         'bandsheet',
         'horizon',
+        'cruise_code'
     ];
 
     /**
@@ -61,3 +66,4 @@ class DayPromotion extends Model
         return $query->whereBetween('start', [$start, $end])->with('promotion', 'venue')->where('user_id', '=', $id);
     }
 }
+
