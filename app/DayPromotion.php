@@ -25,7 +25,7 @@ class DayPromotion extends Model
         'show_end_time',
         'bandsheet',
         'horizon',
-        'cruise_code'
+        'cruise_code',
     ];
 
     /**
@@ -66,4 +66,3 @@ class DayPromotion extends Model
         return $query->whereBetween('start', [$start, $end])->with('promotion', 'venue')->where('user_id', '=', $id);
     }
 }
-
