@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\DressCode;
+use App\Models\Port;
 
 class Itinerary extends Model
 {
@@ -55,12 +57,12 @@ class Itinerary extends Model
 
     public function port()
     {
-        return $this->belongsTo(\App\Models\Port::class);
+        return $this->belongsTo(Port::class);
     }
 
     public function dress()
     {
-        return $this->belongsTo(\App\Dresscode::class);
+        return $this->belongsTo(Dresscode::class);
     }
 
     public function scopeCode($query, $cruise)
