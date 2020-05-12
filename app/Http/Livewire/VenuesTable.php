@@ -28,7 +28,7 @@ class VenuesTable extends Component
     public function render()
     {
         return view('livewire.venues-table', [
-            'rooms' => \App\Room::Venues()
+            'rooms' => \App\Models\Room::Venues()
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                 ->paginate($this->perPage),
         ]);

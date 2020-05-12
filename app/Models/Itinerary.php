@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -55,7 +55,7 @@ class Itinerary extends Model
 
     public function port()
     {
-        return $this->belongsTo(\App\Port::class);
+        return $this->belongsTo(\App\Models\Port::class);
     }
 
     public function dress()

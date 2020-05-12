@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Port extends Model
+class Agent extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,10 +12,13 @@ class Port extends Model
      * @var array
      */
     protected $fillable = [
+        'port_id',
         'name',
-        'country_id',
-        'image',
-        'description',
+        'business_name',
+        'primary_contact_number',
+        'secondary_contact_number',
+        'email',
+        'address',
     ];
 
     /**
@@ -25,16 +28,11 @@ class Port extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'country_id' => 'integer',
+        'port_id' => 'integer',
     ];
 
-    public function country()
+    public function port()
     {
-        return $this->belongsTo(\App\Country::class);
-    }
-
-    public function agent()
-    {
-        return $this->hasMany(\App\Agent::class);
+        return $this->belongsTo(\App\Models\Port::class);
     }
 }

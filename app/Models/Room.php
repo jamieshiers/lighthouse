@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -25,12 +25,12 @@ class Room extends Model
 
     public function owners()
     {
-        return $this->belongsTo(\App\User::class, 'user_id', 'id');
+        return $this->belongsTo(\App\Models\User::class, 'user_id', 'id');
     }
 
     public function ships()
     {
-        return $this->belongsTo(\App\Fleet::class, 'ship_id', 'id');
+        return $this->belongsTo(\App\Models\Fleet::class, 'ship_id', 'id');
     }
 
     public function ScopeVenues($query)

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Activity;
+use App\Models\Activity;
 use App\Http\Requests\ActivityStoreRequest;
 use Illuminate\Http\Request;
 

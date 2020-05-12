@@ -2,15 +2,13 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use App\User;
-
 
 class loginTest extends TestCase
 {
-
     use RefreshDatabase;
 
     /** @test */
@@ -32,8 +30,5 @@ class loginTest extends TestCase
     public function can_login()
     {
         $user = factory(User::class)->create();
-
-        
     }
-
 }

@@ -1,11 +1,11 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-use App\Room;
+use App\Models\Room;
 use Faker\Generator as Faker;
 use Ramsey\Uuid\Uuid;
 
-$factory->define(App\Room::class, function (Faker $faker) {
+$factory->define(App\Models\Room::class, function (Faker $faker) {
     static $user_id;
 
     return [

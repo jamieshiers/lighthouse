@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +25,7 @@ class DayPromotion extends Model
         'show_end_time',
         'bandsheet',
         'horizon',
-        'cruise_code'
+        'cruise_code',
     ];
 
     /**
@@ -51,12 +51,12 @@ class DayPromotion extends Model
 
     public function promotion()
     {
-        return $this->belongsTo(\App\Promotion::class);
+        return $this->belongsTo(\App\Models\Promotion::class);
     }
 
     public function venue()
     {
-        return $this->belongsTo(\App\Room::class);
+        return $this->belongsTo(\App\Models\Room::class);
     }
 
     public function scopeByDate($query, $start, $end)
@@ -66,4 +66,3 @@ class DayPromotion extends Model
         return $query->whereBetween('start', [$start, $end])->with('promotion', 'venue')->where('user_id', '=', $id);
     }
 }
-
