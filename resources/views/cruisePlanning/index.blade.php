@@ -1,16 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Cruise Planning')
 
 @section('content')
 
 <main
-      
+
       x-data="{ 'dialogOpen': false }"
-      x-init="fetch('{{route('promotion.add')}}').then(response => response.text()).then(data => this.html = data)"
+      x-init="fetch('{{route('promotions.index')}}').then(response => response.text()).then(data => this.html = data)"
       @keydown.escape="dialogOpen = false"
 >
-  
+
 
     <!-- overlay -->
     <div
@@ -114,10 +113,10 @@
                                     @if($day->day_date->format('Y-m-d') == $promo->start->format('Y-m-d'))
                                     <p class="text-sm font-medium text-gray-600">{{$promo->promotion->title}}: <Span
                                             class="text-gray-400">{{ $promo->start->format('g.ia') }} - {{ $promo->finish->format('g.ia') }} </Span></p>
-                                    @endif 
+                                    @endif
                                     @endforeach
                                     <button type="button" class="border p-2 bg-white hover:border-gray-500" @click="dialogOpen = true">Add Promotion</button>
-                                    
+
                                 </div>
                                 <div class="col-span-2 mt-4">
                                     <h4 class="text-base font-medium leading-6 text-blue-900">Day's Events</h4>
@@ -139,6 +138,6 @@
 
 
 
-    
+
 
 @endsection
