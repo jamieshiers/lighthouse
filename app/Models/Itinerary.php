@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\DressCode;
 use App\Models\Port;
+use Illuminate\Database\Eloquent\Model;
 
 class Itinerary extends Model
 {
