@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\DayPromotion as Promotion;
-use App\Itinerary as Cruise;
-use App\Room;
+use App\Models\DayPromotion as Promotion;
+use App\Models\Itinerary as Cruise;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class CruisePlanningController extends Controller

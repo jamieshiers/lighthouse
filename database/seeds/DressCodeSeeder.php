@@ -1,6 +1,6 @@
 <?php
 
-use App\DressCode;
+use App\Models\DressCode;
 use Illuminate\Database\Seeder;
 
 class DressCodeSeeder extends Seeder

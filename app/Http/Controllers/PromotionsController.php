@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PromotionsStoreRequest;
-use App\Promotion;
+use App\Models\Promotion;
 use Illuminate\Http\Request;
 
 class PromotionsController extends Controller

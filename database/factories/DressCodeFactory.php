@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\DressCode;
+use App\Models\DressCode;
 use Faker\Generator as Faker;
 
 $factory->define(DressCode::class, function (Faker $faker) {

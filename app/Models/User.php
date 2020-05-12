@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -50,11 +50,11 @@ class User extends Authenticatable
 
     public function Rooms()
     {
-        $this->hasMany(\App\Room::class);
+        $this->hasMany(\App\Models\Room::class);
     }
 
     public function Ship()
     {
-        $this->belongsTo(\App\Fleet::class, 'ship_id', 'id');
+        $this->belongsTo(\App\Models\Fleet::class, 'ship_id', 'id');
     }
 }
