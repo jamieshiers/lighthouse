@@ -20,13 +20,9 @@
     <!-- Header -->
     @include('layouts.partials.header')
 
-    <div class="max-w-7xl mx-auto">
-        <!-- Replace with your content -->
-        <div class="py-4    ">
-            <div>
-                @yield('content')
-            </div>
-        </div>
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        @yield('content')
+    </div>
         <!-- /End replace -->
     </div>
     </main>
