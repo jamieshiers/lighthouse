@@ -16,10 +16,13 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/planning/{cruise}', 'CruisePlanningController@index')->name('planning');
+Route::middleware('auth')->group(function() {
+    Route::livewire('/planning/{cruise}', 'planning.planner')->name('planning');
+});
+
 
 Route::prefix('settings')->group(function () {
-    Route::resource('venues', 'settings\VenueController');
+    Route::get('venues', 'settings\VenueController@index')->name('venues.index');
     Route::resource('users', 'settings\UserController');
 });
 
