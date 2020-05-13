@@ -1,4 +1,3 @@
-@section('title', 'Venues')
 <div>
     <div class="bg-white flex  py-4 items-center justify-between border-b border-gray-200 ">
         <div>
@@ -18,7 +17,7 @@
         </div>
         @can('Create Venues')
             <div>
-                <a href="{{ route('venues.create') }}"
+                <a href="#"
                    class="w-1/4 flex md:w-auto items-center pl-2 pr-2 py-2  text-sm text-white bg-green-400 rounded hover:bg-green-600">
                     <x:heroicon-o-plus-circle class="h-6 w-6 text-white"/>
                     <span class="pl-2">Add Venue</span>
