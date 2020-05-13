@@ -11,7 +11,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/output.css') }}" rel="stylesheet">
-    <livewire:styles>
+    @livewireStyles
      <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
      <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
@@ -29,6 +29,6 @@
     </div>
     </div>
 
-<livewire:scripts>
+    @livewireScripts
 </body>
 </html>
