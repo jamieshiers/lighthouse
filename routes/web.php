@@ -16,10 +16,9 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
     Route::livewire('/planning/{cruise}', 'planning.planner')->name('planning');
 });
-
 
 Route::prefix('settings')->group(function () {
     Route::get('venues', 'settings\VenueController@index')->name('venues.index');
