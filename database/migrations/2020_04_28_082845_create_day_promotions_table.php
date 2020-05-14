@@ -17,8 +17,8 @@ class CreateDayPromotionsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('promotion_id');
             $table->integer('venue_id')->unsigned();
-            $table->decimal('expected_revenue', 10,2);
-            $table->decimal('achieved_revenue', 10,2)->nullable();
+            $table->decimal('expected_revenue', 10, 2);
+            $table->decimal('achieved_revenue', 10, 2)->nullable();
             $table->integer('uptake')->nullable();
             $table->integer('max_number')->nullable();
             $table->integer('user_id')->unsigned();
