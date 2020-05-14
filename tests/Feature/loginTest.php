@@ -27,13 +27,4 @@ class loginTest extends TestCase
 
         $this->get(route('login'))->assertRedirect(route('home'));
     }
-
-    /** @test */
-    public function can_login()
-    {
-        $user = factory(User::class)->create();
-
-        
-    }
-
 }

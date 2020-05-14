@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Room;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -9,11 +10,14 @@ use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 use Livewire\Livewire;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Faker\Generator as Faker;
 
 class venueTest extends TestCase
 {
 
     use RefreshDatabase;
+    use WithFaker;
 
     public function setUp(): void
     {
@@ -42,7 +46,7 @@ class venueTest extends TestCase
     }
 
     /** @test */
-    function user_cant_see_the_create_button()
+    function user_without_create_venues_permission_cant_see_the_create_button()
     {
         auth()->login(factory(User::class)->create());
 
@@ -52,14 +56,54 @@ class venueTest extends TestCase
     }
 
     /** @test */
-    function authrised_user_can_see_the_create_button()
+    function user_with_create_venues_permission_can_see_the_create_button()
     {
         auth()->login(factory(User::class)->create());
 
-        Auth::user()->assignrole('Ventura Admin');
+        Auth::user()->givePermissionTo('Create Venues');
 
         $this->get(route('venues.index'))
             ->assertSee('Add Venue')
+            ->assertSuccessful();
+    }
+
+    /** @test */
+    function user_without_edit_venues_permission_cant_see_the_edit_button()
+    {
+        auth()->login(factory(User::class)->create());
+
+        Room::create([
+            'user_id' => Auth::user()->id,
+            'name' => $this->faker->name,
+            'short_name' => $this->faker->name,
+            'capacity' => $this->faker->numberBetween($min = 0, $max = 850),
+            'category' => $this->faker->name,
+            'ship_id' => $this->faker->numberBetween($min = 1, $max = 10),
+        ]);
+
+        $this->get(route('venues.index'))
+            ->assertDontSee('Edit')
+            ->assertSuccessful();
+    }
+
+    /** @test */
+    function user_with_edit_venues_permission_can_see_the_edit_button()
+    {
+        auth()->login(factory(User::class)->create());
+
+        Room::create([
+            'user_id' => Auth::user()->id,
+            'name' => $this->faker->name,
+            'short_name' => $this->faker->name,
+            'capacity' => $this->faker->numberBetween($min = 0, $max = 850),
+            'category' => $this->faker->name,
+            'ship_id' => Auth::user()->ship_id,
+        ]);
+
+        Auth::user()->givePermissionTo('Edit Venues');
+
+        $this->get(route('venues.index'))
+            ->assertSee('Edit')
             ->assertSuccessful();
     }
 
