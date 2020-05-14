@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
@@ -48,6 +48,18 @@ class venueTest extends TestCase
 
         $this->get(route('venues.index'))
             ->assertDontSee('Add Venue')
+            ->assertSuccessful();
+    }
+
+    /** @test */
+    function authrised_user_can_see_the_create_button()
+    {
+        auth()->login(factory(User::class)->create());
+
+        Auth::user()->assignrole('Ventura Admin');
+
+        $this->get(route('venues.index'))
+            ->assertSee('Add Venue')
             ->assertSuccessful();
     }
 
