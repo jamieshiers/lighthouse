@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -44,11 +44,11 @@ class DayActivity extends Model
 
     public function promotion()
     {
-        return $this->belongsTo(\App\Models\Promotion::class);
+        return $this->belongsTo(\App\Promotion::class);
     }
 
     public function venue()
     {
-        return $this->belongsTo(\App\Models\Room::class);
+        return $this->belongsTo(\App\Room::class);
     }
 }

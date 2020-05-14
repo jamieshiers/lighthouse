@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Activity extends Model
+class Promotion extends Model
 {
     /**
      * The attributes that are mass assignable.

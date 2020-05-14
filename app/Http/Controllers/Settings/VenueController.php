@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Settings;
 
+use App\Fleet;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\VenueStoreRequest;
-use App\Models\Fleet;
-use App\Models\Room;
-use App\Models\User;
+use App\Room;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 

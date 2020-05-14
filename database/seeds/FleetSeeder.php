@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Fleet;
+use App\Fleet;
 use Illuminate\Database\Seeder;
 
 class FleetSeeder extends Seeder

@@ -32,7 +32,7 @@ class PermissionSeeder extends Seeder
         $arcadia->givePermissionTo('View Venues');
         $arcadia->givePermissionTo('Edit Venues');
 
-        $user = factory(App\Models\User::class)->create([
+        $user = factory(App\User::class)->create([
             'name' => 'Ventura User',
             'email' => 'ventura@example.com',
             'email_verified_at' => now(),
@@ -41,7 +41,7 @@ class PermissionSeeder extends Seeder
         ]);
         $user->assignRole($ventura);
 
-        $user = factory(App\Models\User::class)->create([
+        $user = factory(App\User::class)->create([
             'name' => 'Arcadia User',
             'email' => 'arcadia@example.com',
             'email_verified_at' => now(),

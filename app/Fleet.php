@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
-use App\Models\Room;
-use App\Models\User;
+use App\Room;
+Use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Fleet extends Model

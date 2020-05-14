@@ -2,14 +2,14 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\Itinerary;
+use App\Itinerary;
 use Faker\Generator as Faker;
 
 $factory->define(Itinerary::class, function (Faker $faker) {
     return [
         'cruise_number' => $faker->word,
         'day_number' => $faker->randomNumber(),
-        'port_id' => factory(\App\Models\Port::class),
+        'port_id' => factory(\App\Port::class),
         'dress_id' => factory(\App\Dresscode::class),
         'berth' => $faker->word,
         'arrival' => $faker->dateTime(),
