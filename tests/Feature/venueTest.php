@@ -16,13 +16,13 @@ use Faker\Generator as Faker;
 class venueTest extends TestCase
 {
 
-    use RefreshDatabase;
     use WithFaker;
 
     public function setUp(): void
     {
         parent::setUp();
 
+        $this->artisan('migrate');
         $this->artisan('db:seed');
 
         $this->app->make(\Spatie\Permission\PermissionRegistrar::class)->registerPermissions();
@@ -38,7 +38,8 @@ class venueTest extends TestCase
     /** @test */
     function  venues_page_contains_a_livewire_component()
     {
-        auth()->login(factory(User::class)->create());
+        $user = User::get('11');
+        Auth::login($user);
 
         $this->get(route('venues.index'))
             ->assertSuccessful()
@@ -105,6 +106,39 @@ class venueTest extends TestCase
         $this->get(route('venues.index'))
             ->assertSee('Edit')
             ->assertSuccessful();
+    }
+
+    /** @test */
+    function ship_user_can_only_see_venues_on_there_ship()
+    {
+        auth()->login(factory(User::class)->create());
+
+        Room::create([
+            'user_id' => Auth::user()->id,
+            'name' => 'Test Venue (Deck 6) Forward',
+            'short_name' => $this->faker->name,
+            'capacity' => $this->faker->numberBetween($min = 0, $max = 850),
+            'category' => $this->faker->name,
+            'ship_id' => Auth::user()->ship_id,
+        ]);
+
+        Room::create([
+            'user_id' => Auth::user()->id,
+            'name' => 'Test Venue (Deck 7) Forward',
+            'short_name' => $this->faker->name,
+            'capacity' => $this->faker->numberBetween($min = 0, $max = 850),
+            'category' => $this->faker->name,
+            'ship_id' => '22',
+        ]);
+
+        $this->get(route('venues.index'))
+            ->assertSee('Test Venue (Deck 6) Forward')
+            ->assertDontSee('Test Venue (Deck 7) Forward')
+            ->assertSuccessful();
+
+
+
+
     }
 
 

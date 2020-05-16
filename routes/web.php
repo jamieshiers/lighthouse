@@ -16,15 +16,20 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::middleware('auth')->group(function() {
+
+
+// Protected Routes
+Route::middleware('auth')->group(function () {
+
+    Route::prefix('settings')->group(function () {
+        // Venues Group Settings
+        Route::get('venues', 'settings\VenueController@index')->name('venues.index');
+        Route::get('venues/{id}/edit', 'settings\VenueController@edit')->name('venues.edit');
+    });
+
     Route::livewire('/planning/{cruise}', 'planning.planner')->name('planning');
 });
 
-
-Route::prefix('settings')->group(function () {
-    Route::get('venues', 'settings\VenueController@index')->name('venues.index');
-    Route::resource('users', 'settings\UserController');
-});
 
 Route::resource('promotions', 'PromotionsController')->only('index', 'store');
 

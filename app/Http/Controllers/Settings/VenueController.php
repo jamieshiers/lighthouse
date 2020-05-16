@@ -12,10 +12,6 @@ use Illuminate\View\View;
 
 class VenueController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      *  Display a listing of all the Venues.

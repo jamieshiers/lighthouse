@@ -15,9 +15,10 @@ class DatabaseSeeder extends Seeder
             [
                 //FleetSeeder::class,
                 //UsersTableSeeder::class,
-                //RoomsTableSeeder::class,
                 PermissionSeeder::class,
                 //DressCodeSeeder::class,
+                //RoomsTableSeeder::class,
+
             ]
         );
     }

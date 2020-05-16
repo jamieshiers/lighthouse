@@ -10,8 +10,17 @@ use Tests\TestCase;
 
 class cruisePlannerTest extends TestCase
 {
-
     use RefreshDatabase;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->artisan('migrate');
+        $this->artisan('db:seed');
+
+        $this->app->make(\Spatie\Permission\PermissionRegistrar::class)->registerPermissions();
+    }
 
     /** @test */
     function user_is_redirected_if_not_logged_in()
