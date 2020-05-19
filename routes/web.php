@@ -1,5 +1,7 @@
 <?php
 
+use App\Admin\GuestLog\Controllers\GuestLogDashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +18,8 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/guestlog', GuestLogDashboardController::class)->name('guest.log');
 
 
 // Protected Routes
