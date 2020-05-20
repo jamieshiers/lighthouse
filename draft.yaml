@@ -62,6 +62,16 @@ models:
     long_description: text
     image: string:250
 
+  Guest:
+    booking_reference: string:6 index
+    cabin: string:10
+    berth: int:1
+    first_name: string:100
+    last_name: string:100
+    birthday: date
+
+
+
 controllers:
   Activity:
     index:

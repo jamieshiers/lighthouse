@@ -1,11 +1,12 @@
 created:
-    - database/migrations/2020_04_15_082708_create_activities_table.php
-    - database/migrations/2020_04_15_082709_create_day_activities_table.php
-    - database/migrations/2020_04_15_082710_create_ports_table.php
-    - database/migrations/2020_04_15_082711_create_countries_table.php
-    - database/migrations/2020_04_15_082712_create_agents_table.php
-    - database/migrations/2020_04_15_082713_create_itineraries_table.php
-    - database/migrations/2020_04_15_082714_create_dress_codes_table.php
+    - database/migrations/2020_05_20_133346_create_activities_table.php
+    - database/migrations/2020_05_20_133347_create_day_activities_table.php
+    - database/migrations/2020_05_20_133348_create_ports_table.php
+    - database/migrations/2020_05_20_133349_create_countries_table.php
+    - database/migrations/2020_05_20_133350_create_agents_table.php
+    - database/migrations/2020_05_20_133351_create_itineraries_table.php
+    - database/migrations/2020_05_20_133352_create_dress_codes_table.php
+    - database/migrations/2020_05_20_133353_create_guests_table.php
     - app/Activity.php
     - app/DayActivity.php
     - app/Port.php
@@ -13,6 +14,7 @@ created:
     - app/Agent.php
     - app/Itinerary.php
     - app/DressCode.php
+    - app/Guest.php
     - database/factories/ActivityFactory.php
     - database/factories/DayActivityFactory.php
     - database/factories/PortFactory.php
@@ -20,12 +22,9 @@ created:
     - database/factories/AgentFactory.php
     - database/factories/ItineraryFactory.php
     - database/factories/DressCodeFactory.php
+    - database/factories/GuestFactory.php
     - app/Http/Controllers/ActivityController.php
     - app/Http/Controllers/AgentController.php
-    - app/Http/Requests/ActivityStoreRequest.php
-    - resources/views/activity/index.blade.php
-    - resources/views/activity/create.blade.php
-    - resources/views/agent/index.blade.php
     - tests/Feature/Http/Controllers/ActivityControllerTest.php
     - tests/Feature/Http/Controllers/AgentControllerTest.php
 updated:
@@ -42,3 +41,4 @@ models:
     DressCode: { name: 'string:100', short_description: text, long_description: text, image: 'string:250' }
     Activity: { title: 'string:100', subhead: 'string:120', description: longtext, image: 'string:400', category: 'string:400' }
     DayActivity: { promotion_id: 'id:promotion', venue_id: 'id:room', start: dateTimeTz, finish: dateTimeTz, show_end_time: bool, bandsheet: bool, horizon: bool }
+    Guest: { booking_reference: 'string:6 index', cabin: 'string:10', berth: 'int:1', first_name: 'string:100', last_name: 'string:100', birthday: date }

@@ -3,8 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\DressCode;
-use App\Port;
 
 class Itinerary extends Model
 {
@@ -52,8 +50,8 @@ class Itinerary extends Model
         'clock_change_time',
         'sunrise',
         'sunset',
-        'day_date',
     ];
+
 
     public function port()
     {
@@ -62,11 +60,6 @@ class Itinerary extends Model
 
     public function dress()
     {
-        return $this->belongsTo(Dresscode::class);
-    }
-
-    public function scopeCode($query, $cruise)
-    {
-        return $query->where('cruise_number', '=', $cruise)->with('dress', 'port');
+        return $this->belongsTo(\App\Dresscode::class);
     }
 }
