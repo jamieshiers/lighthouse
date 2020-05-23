@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b02004104b0b19c82d6940406341556b",
+    "content-hash": "eb1a845c40e2caf11d66462f0d5c7017",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5754,35 +5754,37 @@
         },
         {
             "name": "nunomaduro/collision",
-            "version": "v4.2.0",
+            "version": "v5.0.0-BETA1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/collision.git",
-                "reference": "d50490417eded97be300a92cd7df7badc37a9018"
+                "reference": "f82d97153a4e07724ff8db984deec420447546cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/d50490417eded97be300a92cd7df7badc37a9018",
-                "reference": "d50490417eded97be300a92cd7df7badc37a9018",
+                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/f82d97153a4e07724ff8db984deec420447546cd",
+                "reference": "f82d97153a4e07724ff8db984deec420447546cd",
                 "shasum": ""
             },
             "require": {
                 "facade/ignition-contracts": "^1.0",
-                "filp/whoops": "^2.4",
-                "php": "^7.2.5",
+                "filp/whoops": "^2.7.2",
+                "php": "^7.3",
                 "symfony/console": "^5.0"
             },
             "require-dev": {
-                "facade/ignition": "^2.0",
-                "fideloper/proxy": "^4.2",
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "fruitcake/laravel-cors": "^1.0",
-                "laravel/framework": "^7.0",
-                "laravel/tinker": "^2.0",
-                "nunomaduro/larastan": "^0.5",
-                "orchestra/testbench": "^5.0",
-                "phpstan/phpstan": "^0.12.3",
-                "phpunit/phpunit": "^8.5.1 || ^9.0"
+                "facade/ignition": "^2.0.2",
+                "fideloper/proxy": "^4.3",
+                "friendsofphp/php-cs-fixer": "^2.16.3",
+                "fruitcake/laravel-cors": "^1.0.6",
+                "laravel/framework": "^7.10.3",
+                "laravel/tinker": "^2.4",
+                "nunomaduro/larastan": "^0.5.8",
+                "nunomaduro/mock-final-classes": "^1.0",
+                "orchestra/testbench": "^5.2",
+                "phpstan/phpstan": "^0.12.25",
+                "phpunit/phpunit": "^9.1.4",
+                "rector/rector": "^0.7.23"
             },
             "type": "library",
             "extra": {
@@ -5820,7 +5822,21 @@
                 "php",
                 "symfony"
             ],
-            "time": "2020-04-04T19:56:08+00:00"
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/nunomaduro",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/nunomaduro",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-05-11T13:56:01+00:00"
         },
         {
             "name": "nunomaduro/larastan",
@@ -6079,6 +6095,93 @@
                 "random"
             ],
             "time": "2018-07-02T15:55:56+00:00"
+        },
+        {
+            "name": "pestphp/pest",
+            "version": "v0.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pestphp/pest.git",
+                "reference": "69f6a221218586788dbe87f25efa28c9f9bb2c0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/69f6a221218586788dbe87f25efa28c9f9bb2c0d",
+                "reference": "69f6a221218586788dbe87f25efa28c9f9bb2c0d",
+                "shasum": ""
+            },
+            "require": {
+                "nunomaduro/collision": "^5.0",
+                "php": "^7.3",
+                "phpunit/phpunit": "^9.1.4",
+                "sebastian/environment": "^5.1"
+            },
+            "require-dev": {
+                "ergebnis/phpstan-rules": "^0.14.4",
+                "friendsofphp/php-cs-fixer": "^2.16.3",
+                "illuminate/console": "^7.10.3",
+                "illuminate/support": "^7.10.3",
+                "mockery/mockery": "^1.3.1",
+                "phpstan/phpstan": "^0.12.25",
+                "phpstan/phpstan-strict-rules": "^0.12.2",
+                "rector/rector": "^0.7.25",
+                "symfony/var-dumper": "^5.0.8",
+                "thecodingmachine/phpstan-strict-rules": "^0.12.0"
+            },
+            "bin": [
+                "bin/pest"
+            ],
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Pest\\Laravel\\PestServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pest\\": "src/"
+                },
+                "files": [
+                    "src/globals.php",
+                    "compiled/globals.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nuno Maduro",
+                    "email": "enunomaduro@gmail.com"
+                }
+            ],
+            "description": "An elegant PHP Testing Framework.",
+            "keywords": [
+                "framework",
+                "pest",
+                "php",
+                "test",
+                "testing",
+                "unit"
+            ],
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/nunomaduro",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/nunomaduro",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-05-21T20:22:34+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -6972,16 +7075,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.1.4",
+            "version": "9.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2d7080c622cf7884992e7c3cf87853877bae8ff4"
+                "reference": "1b570cd7edbe136055bf5f651857dc8af6b829d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2d7080c622cf7884992e7c3cf87853877bae8ff4",
-                "reference": "2d7080c622cf7884992e7c3cf87853877bae8ff4",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1b570cd7edbe136055bf5f651857dc8af6b829d2",
+                "reference": "1b570cd7edbe136055bf5f651857dc8af6b829d2",
                 "shasum": ""
             },
             "require": {
@@ -7066,7 +7169,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-04-30T06:32:53+00:00"
+            "time": "2020-05-22T13:54:05+00:00"
         },
         {
             "name": "scrivo/highlight.php",

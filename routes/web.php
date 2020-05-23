@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Protected Routes
 Route::middleware('auth')->group(function () {
+    Route::prefix('guestlog')->group(function () {
+       Route::get('/', guestLog\guestLogIndexController::class)->name('guestLog.index');
+    });
 
     Route::prefix('settings')->group(function () {
         // Venues Group Settings

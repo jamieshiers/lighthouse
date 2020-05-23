@@ -1,22 +1,18 @@
 <?php
 
-namespace Tests\Feature;
-
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 
-class GuestLogAdminTest extends TestCase
-{
-    /** @test */
-    function can_view_the_guest_log_dashboard()
-    {
-        $this->get('/guestlog')->assertStatus('200');
-    }
+uses(RefreshDatabase::class);
 
-    /** @test */
-    function can_view_indivigual_guest_log()
-    {
-        $this->get('/guestlog/1')->assertStatus('200');
-    }
-}
+it('can_view_the_guest_log_dashboard', function () {
+    auth()->login(factory(User::class)->create());
+    $this->get('/guestlog')->assertStatus(200);
+});
+
+it('can_view_specfic_guest_log', function () {
+    auth()->login(factory(User::class)->create());
+
+    $guestLog = factory(Guestlog::class)->create();
+});
+

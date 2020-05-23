@@ -15,7 +15,7 @@ class CreateGuestLogCommentsTable extends Migration
     {
         Schema::create('guest_log_comments', function (Blueprint $table) {
             $table->id();
-            $table->integer('GuestLog_id');
+            $table->string('GuestLog_id');
             $table->longText('comment_text');
             $table->integer('user_id');
             $table->timestamps();
