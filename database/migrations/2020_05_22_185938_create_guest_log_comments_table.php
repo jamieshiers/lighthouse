@@ -17,7 +17,7 @@ class CreateGuestLogCommentsTable extends Migration
             $table->id();
             $table->string('GuestLog_id');
             $table->longText('comment_text');
-            $table->integer('user_id');
+            $table->integer('user_id', 10)->unsigned();
             $table->timestamps();
         });
     }

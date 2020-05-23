@@ -28,12 +28,13 @@ class AddForeginKeys extends Migration
 
         Schema::table('guest_logs', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('booking_reference')->references('booking_reference')->on('guests');
             $table->foreign('opened_by')->references('id')->on('users');
         });
 
         Schema::table('guest_log_comments', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('guest_log_id')->references('Log_number')->on('guest_logs');
+            $table->foreign('guestLog_id')->references('log_number')->on('guest_logs');
         });
 
     }
