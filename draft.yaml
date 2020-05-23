@@ -1,93 +1,18 @@
 models:
-  Activity:
-    title: string:100
-    subhead: string:120
-    description: longtext
-    image: string:400
-    category: string:400
+  GuestLogComment:
+    GuestLog_id: integer
+    comment_text: longtext
+    user_id: integer
+    relationships:
+      belongsTo: GuestLog
 
-  DayActivity:
-    promotion_id: id:promotion
-    venue_id: id:room
-    start: dateTimeTz
-    finish: dateTimeTz
-    show_end_time: bool
-    bandsheet: bool
-    horizon: bool
-
-  Port:
-    name: string:400
-    country_id: id:country
-    image: string:250
-    description: longtext
-
-  Country:
-    iso: string:2
-    name: string:80
-    nice_name: string:80
-    iso3: string:3
-    numcode: unsigned integer
-    phonecode: unsigned integer
-    emergency: string:20
-    currency_name: string:50
-    currency_symbol: string:1
-
-  Agent:
-    port_id: id:port
-    name: string:100
-    business_name: string:100
-    primary_contact_number: string:50
-    secondary_contact_number: string:50
-    email: string:100
-    address: string:250
-
-  Itinerary:
-    cruise_number: string:10
-    day_number: integer:5
-    port_id: id:port
-    dress_id: id:dresscode
-    berth: nullable string:100
-    arrival: nullable timestamp
-    departure: nullable timestamp
-    offset: nullable integer:3
-    clock_change_time: dateTimeTz
-    sunrise: nullable timestamp
-    sunset: nullable timestamp
-    weather_description: nullable string:50
-    weather_temperature: nullable float
-
-  DressCode:
-    name: string:100
-    short_description: text
-    long_description: text
-    image: string:250
-
-  Guest:
-    booking_reference: string:6 index
-    cabin: string:10
-    berth: int:1
-    first_name: string:100
-    last_name: string:100
-    birthday: date
-
-
-
-controllers:
-  Activity:
-    index:
-      query: all
-      render: activity.index with:activity
-
-    create:
-      render: activity.create
-
-    store:
-      validate: title, subhead, description, image, category
-      save: activity
-      redirect: activity.index
-      flash: activity.title
-
-  Agent:
-    index:
-      query: all
-      render: agent.index with:agent
+  GuestLog:
+    user_id: integer
+    booking_reference: string:6
+    short_description : string:140
+    status: enum:Closed, Open
+    guest_emotion: integer
+    opened_by: integer
+    relationships:
+      hasMany: GuestLogComments
+      belongsTo: User, Guest
