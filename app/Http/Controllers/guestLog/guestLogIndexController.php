@@ -11,8 +11,11 @@ class guestLogIndexController
 {
  public function __invoke()
  {
+     $logs = GuestLog::MyOpenGuestLogs()->get();
+
     return view('guestLog.index', [
-        'logs' => GuestLog::MyOpenGuestLogs()->get(),
+        'logs' => $logs,
+        'openLogs' => $logs->count()
     ]);
  }
 }

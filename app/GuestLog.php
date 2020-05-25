@@ -17,12 +17,15 @@ class GuestLog extends Model
      * @var array
      */
     protected $fillable = [
+        'log_number',
         'user_id',
         'booking_reference',
         'short_description',
         'status',
         'guest_emotion',
         'opened_by',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -34,6 +37,10 @@ class GuestLog extends Model
         'id' => 'integer',
     ];
 
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
 
     public function ScopeMyOpenGuestLogs(Builder $query): void
     {
@@ -44,6 +51,14 @@ class GuestLog extends Model
             ->where('status', GuestLogStatus::OPEN)
             ->with(['user', 'guest'])
             ->orderBy('created_at');
+    }
+
+    public function scopeGetFullGuestLog(Builder $query, string $log_number): void
+    {
+        $query
+            ->where('log_number', '=', $log_number)
+            ->with(['guest', 'user', 'guestLogComments', 'guestLogComments.user'])
+            ->orderBy('updated_at');
     }
 
     public function ScopeCountOpenLogs(builder $query): void
@@ -63,7 +78,7 @@ class GuestLog extends Model
 
     public function guestLogComments()
     {
-        return $this->hasMany(\App\GuestLogComments::class);
+        return $this->hasMany(\App\GuestLogComment::class, 'guest_log_id', 'log_number');
     }
 
     public function user()

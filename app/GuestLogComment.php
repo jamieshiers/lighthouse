@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class GuestLogComment extends Model
 {
     /**
@@ -12,7 +13,7 @@ class GuestLogComment extends Model
      * @var array
      */
     protected $fillable = [
-        'GuestLog_id',
+        'guest_log_id',
         'comment_text',
         'user_id',
     ];
@@ -27,8 +28,14 @@ class GuestLogComment extends Model
     ];
 
 
+
     public function guestLog()
     {
         return $this->belongsTo(\App\GuestLog::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(\App\User::class);
     }
 }

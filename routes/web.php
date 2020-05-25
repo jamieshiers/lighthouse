@@ -23,6 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware('auth')->group(function () {
     Route::prefix('guestlog')->group(function () {
        Route::get('/', guestLog\guestLogIndexController::class)->name('guestLog.index');
+       Route::get('/{log_number}', [App\Http\Controllers\guestLog\guestLogContentController::class, 'edit'])->name('guestLog.view');
+       Route::post('/{log_number}/update', [App\Http\Controllers\guestLog\guestLogContentController::class, 'update'])
+           ->name('guestLog.update');
     });
 
     Route::prefix('settings')->group(function () {
