@@ -27,11 +27,13 @@ class GuestLogComment extends Model
         'id' => 'integer',
     ];
 
+    //protected $touches = ['guestLog'];
+
 
 
     public function guestLog()
     {
-        return $this->belongsTo(\App\GuestLog::class);
+        return $this->belongsTo(\App\GuestLog::class, 'log_number', 'guest_log_id');
     }
 
     public function user()

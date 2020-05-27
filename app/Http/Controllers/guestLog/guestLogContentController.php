@@ -18,6 +18,9 @@ Class guestLogContentController
 
     public function update(string $log_number, GuestLogResponseStoreRequest $request)
     {
+        $log = GuestLog::find($log_number);
+        $log->touch();
+
         $comment = GuestLogComment::create([
             'guest_log_id' => $log_number,
             'comment_text' => $request->response,

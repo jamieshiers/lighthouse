@@ -11,6 +11,10 @@ Use Carbon\Carbon;
 
 class GuestLog extends Model
 {
+
+    public $incrementing = false;
+
+    protected $primaryKey = 'log_number';
     /**
      * The attributes that are mass assignable.
      *
@@ -41,6 +45,7 @@ class GuestLog extends Model
         'created_at',
         'updated_at',
     ];
+
 
     public function ScopeMyOpenGuestLogs(Builder $query): void
     {
