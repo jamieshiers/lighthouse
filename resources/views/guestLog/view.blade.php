@@ -1,13 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
-    @foreach($details as $detail)
-        <h2 class="pt-6 mb-4 text-lg font-bold">View Guest Log - {{ $detail->log_number }}</h2>
-    @endforeach
-    <div class="md:grid md:grid-cols-4 md:gap-6">
-        <div class="md:col-span-3">
+    <div class="md:grid md:grid-cols-5">
+        <div class="md:col-span-1 bg-gray-100 h-full">
+                <h1>Sidebar</h1>
+        </div>
+        <!-- Main Comment Body -->
+        <div class="md:col-span-4">
             @foreach($details as $detail)
-                <div class="bg-white overflow-hidden shadow rounded-lg">
+                <div class="bg-white overflow-hidden">
+                    <div class="border-b border-gray-300 px-4 py-5">
+                        <a href="{{ route('guestLog.index') }}" class="text-indigo-600 no-underline">
+                            <x:heroicon-o-arrow-narrow-left class="h-6 w-6 mr-4 inline"/> <span class="align-middle">Guest Logs</span>
+                        </a>
+                        <span class="text-gray-800 align-middle"> / {{ $detail->short_description }}</span>
+                    </div>
+                </div>
+                <!-- Do we need to close out the forech here? -->
+        </div>
+        <!-- Main Comments Section -->
+        <div class="bg-white overflow-hidden md:col-start-2 md:col-span-3">
+            <span class="mt-1 text-sm leading-5 text-gray-500">{{ $detail->guest->cabin }} - {{ $detail->guest->first_name }} {{$detail->guest->last_name}}</span>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="bg-white overflow-hidden md:col-span-1">
+
+        </div>
+
+
                     <div class="border-b border-gray-200 px-4 py-5 sm:px-6">
                         <div class="-mt-4 flex justify-between items-center flex-wrap sm:flex-no-wrap">
                             <div class="mt-4">
@@ -47,7 +68,7 @@
                     @endforeach
 
                     <div class=" px-4 py-4 sm:px-6">
-                      <h3 class="mb-4">Add a Response</h3>
+                        <h3 class="mb-4">Add a Response</h3>
                         <form method="post" action="{{ route('guestLog.update', $detail->log_number) }}">
                             @csrf
                             <div>
@@ -62,14 +83,12 @@
                             </div>
                         </form>
                     </div>
-                </div>
-            @endforeach
+                    @endforeach
         </div>
-        <div class="md:col-span-1">
-            <div class="bg-white overflow-hidden shadow rounded-lg">
-                <h1>Sidebar</h1>
-            </div>
+
+    </div>
         </div>
+
 
     </div>
 

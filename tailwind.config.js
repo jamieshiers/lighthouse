@@ -1,6 +1,10 @@
 module.exports = {
     theme: {
-        extend: {},
+        extend: {
+            font-family: {
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+            },
+        },
     },
     plugins: [
         require('@tailwindcss/ui')({
