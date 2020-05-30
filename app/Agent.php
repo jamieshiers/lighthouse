@@ -31,6 +31,7 @@ class Agent extends Model
         'port_id' => 'integer',
     ];
 
+
     public function port()
     {
         return $this->belongsTo(\App\Port::class);

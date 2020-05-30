@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Port extends Model
+
+class GuestLogComment extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,10 +13,9 @@ class Port extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'country_id',
-        'image',
-        'description',
+        'guest_log_id',
+        'comment_text',
+        'user_id',
     ];
 
     /**
@@ -25,12 +25,19 @@ class Port extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'country_id' => 'integer',
     ];
 
+    //protected $touches = ['guestLog'];
 
-    public function country()
+
+
+    public function guestLog()
     {
-        return $this->belongsTo(\App\Country::class);
+        return $this->belongsTo(\App\GuestLog::class, 'log_number', 'guest_log_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(\App\User::class);
     }
 }

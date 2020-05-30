@@ -1,5 +1,5 @@
 {
-    "name": "jamieshiers/Lighthouse",
+    "name": "jamieshiers/lighthouse",
     "type": "project",
     "description": "Hotel Ops Planning and Management System. Lighting the way to a better future.",
     "keywords": [],
@@ -25,9 +25,10 @@
         "jasonmccreary/laravel-test-assertions": "^1.0",
         "laravel-shift/blueprint": "^1.5",
         "mockery/mockery": "^1.3.1",
-        "nunomaduro/collision": "^4.1",
+        "nunomaduro/collision": "^5.0",
         "nunomaduro/larastan": "^0.5.5",
         "nunomaduro/phpinsights": "^1.14",
+        "pestphp/pest": "^0.1.3",
         "phpunit/phpunit": "^9.0"
     },
     "config": {

@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +21,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Protected Routes
 Route::middleware('auth')->group(function () {
+    Route::prefix('guestlog')->group(function () {
+       Route::get('/', guestLog\guestLogIndexController::class)->name('guestLog.index');
+       Route::get('/{log_number}', [App\Http\Controllers\guestLog\guestLogContentController::class, 'edit'])->name('guestLog.view');
+       Route::post('/{log_number}/update', [App\Http\Controllers\guestLog\guestLogContentController::class, 'update'])
+           ->name('guestLog.update');
+    });
 
     Route::prefix('settings')->group(function () {
         // Venues Group Settings
@@ -32,6 +39,11 @@ Route::middleware('auth')->group(function () {
 
 
 Route::resource('promotions', 'PromotionsController')->only('index', 'store');
+
+Route::resource('activity', 'ActivityController')->only('index', 'create', 'store');
+
+Route::resource('agent', 'AgentController')->only('index');
+
 
 Route::resource('activity', 'ActivityController')->only('index', 'create', 'store');
 
