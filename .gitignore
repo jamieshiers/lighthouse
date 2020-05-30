@@ -16,3 +16,8 @@ yarn-error.log
 /.vscode/
 /storage/debugbar
 draft.yaml
+.phpstorm.meta.php
+_ide_helper.php
+_ide_helper_models.php
+.blueprint
+.editorconfig

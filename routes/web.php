@@ -1,16 +1,7 @@
 <?php
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Use App\Http\Controllers\guestLog\guestLogCommentController;
 
 Route::get('/', 'HomeController@index');
 
@@ -18,14 +9,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 // Protected Routes
 Route::middleware('auth')->group(function () {
     Route::prefix('guestlog')->group(function () {
+        //Dashboard
        Route::get('/', guestLog\guestLogIndexController::class)->name('guestLog.index');
-       Route::get('/{log_number}', [App\Http\Controllers\guestLog\guestLogContentController::class, 'edit'])->name('guestLog.view');
-       Route::post('/{log_number}/update', [App\Http\Controllers\guestLog\guestLogContentController::class, 'update'])
-           ->name('guestLog.update');
+       // Details View
+       Route::get('/{log_number}', [guestLogCommentController::class, 'edit'])->name('guestLog.view');
+       Route::post('/{log_number}/update', [guestLogCommentController::class, 'update'])->name('guestLog.update');
     });
 
     Route::prefix('settings')->group(function () {
