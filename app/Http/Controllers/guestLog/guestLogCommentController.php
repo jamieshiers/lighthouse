@@ -8,7 +8,9 @@ use App\GuestLog;
 use App\GuestLogComment;
 use App\Http\Requests\CreateGuestLogStoreRequest;
 use App\Http\Requests\GuestLogResponseStoreRequest;
+use App\Mail\GuestLogCreated;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class guestLogCommentController
 {
@@ -40,6 +42,13 @@ class guestLogCommentController
             'user_id' => Auth::user()->id
         ]);
     }
+
+    public function closeLog(string $log_number)
+    {
+        $log = GuestLog::find($log_number);
+
+    }
+
 
     public function update(string $log_number, GuestLogResponseStoreRequest $request)
     {
