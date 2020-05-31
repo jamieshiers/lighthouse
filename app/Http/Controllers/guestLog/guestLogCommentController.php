@@ -26,6 +26,8 @@ class guestLogCommentController
         $ship_code = Fleet::find(Auth::user()->ship_id)->ship_code;
         $log_number = $ship_code . time();
 
+        $user_email = User::find($request->user_id)->email;
+
         $guestLog = GuestLog::create([
             'log_number' => $log_number,
             'user_id' => $request->user_id,
@@ -41,6 +43,12 @@ class guestLogCommentController
             'comment_text' => $request->comment_text,
             'user_id' => Auth::user()->id
         ]);
+
+        mail::to($user_email)->send(new GuestLogCreated());
+
+        flash()->success('')
+
+        return redirect()->route('guestLog.view', $log_number);
     }
 
     public function closeLog(string $log_number)
