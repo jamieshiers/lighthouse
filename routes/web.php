@@ -2,6 +2,7 @@
 
 
 Use App\Http\Controllers\guestLog\guestLogCommentController;
+Use App\Http\Controllers\guestLog\guestLogIndexController;
 
 Route::get('/', 'HomeController@index');
 
@@ -13,10 +14,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware('auth')->group(function () {
     Route::prefix('guestlog')->group(function () {
         //Dashboard
-       Route::get('/', guestLog\guestLogIndexController::class)->name('guestLog.index');
+       Route::get('/', guestLogIndexController::class)->name('guestLog.index');
+       //Add New Log
+        Route::get('/add', [guestLogCommentController::class, 'create'])->name('guestLog.create');
+       Route::post('/', [guestLogCommentController::class, 'store'])->name('guestLog.store')
        // Details View
        Route::get('/{log_number}', [guestLogCommentController::class, 'edit'])->name('guestLog.view');
        Route::post('/{log_number}/update', [guestLogCommentController::class, 'update'])->name('guestLog.update');
+
     });
 
     Route::prefix('settings')->group(function () {

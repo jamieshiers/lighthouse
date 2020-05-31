@@ -21,7 +21,17 @@ class guestLogCommentController
         ]);
     }
 
-    public function create(CreateGuestLogStoreRequest $request)
+    public function create()
+    {
+        // Grab a list of all areas of responsibilty -> linked directly to users
+
+        // Grad a list of all the guests
+
+        return view('guestLog.create', []);
+
+    }
+
+    public function store(CreateGuestLogStoreRequest $request)
     {
         $ship_code = Fleet::find(Auth::user()->ship_id)->ship_code;
         $log_number = $ship_code . time();
@@ -46,13 +56,15 @@ class guestLogCommentController
 
         mail::to($user_email)->send(new GuestLogCreated());
 
-        flash()->success('')
+        flash()->success('Your Guest Log was created successfully')
 
         return redirect()->route('guestLog.view', $log_number);
     }
 
     public function closeLog(string $log_number)
     {
+
+        // TODO: Finish this section for closing logs
         $log = GuestLog::find($log_number);
 
     }
