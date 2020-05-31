@@ -37,6 +37,7 @@
                 </div>
             @endforeach
             <div class=" px-4 py-4 sm:px-6">
+
                 <form method="post" action="{{ route('guestLog.update', $detail->log_number) }}">
                     @csrf
                     <div>
@@ -45,10 +46,13 @@
                                   class="w-11/12 focus:outline-none focus:shadow-outline resize-none rounded border border-gray-300 form-input w-auto ml-8 mr-8"
                                   rows="8" placeholder="Type your response here..."></textarea>
                         <div class="float-right mr-6">
-                            <button class="mt-4 mb-4 mr-2 inline-flex items-center px-4 py-2 border border-gray-500 text-sm leading-5 font-medium rounded-md text-gray-800">
+
+                            <x-form-button :action="route('guestLog.closeLog', $detail->log_number)" class="mt-4 mb-4 mr-2 inline-flex items-center px-4 py-2 border border-gray-500 text-sm leading-5 font-medium rounded-md text-gray-800">
                                 <x:heroicon-s-lock-closed class="h-6 w-6 text-gray-500 inline align-middle pr-2"/>
                                 <span class="align-middle">Close Log</span>
-                            </button>
+                            </x-form-button>
+
+
 
                             <button type="submit"
                                     class="mt-4 mb-4 inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700">

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Mail;
 
 class guestLogCommentController
 {
-    public function edit(string $log_number)
+    public function view(string $log_number)
     {
         return view('guestLog.view', [
             'details' => GuestLog::GetFullGuestLog($log_number)->get(),
@@ -56,7 +56,7 @@ class guestLogCommentController
 
         mail::to($user_email)->send(new GuestLogCreated());
 
-        flash()->success('Your Guest Log was created successfully')
+        flash()->success('Your Guest Log was created successfully');
 
         return redirect()->route('guestLog.view', $log_number);
     }
