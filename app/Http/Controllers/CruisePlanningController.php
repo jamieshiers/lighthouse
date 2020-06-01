@@ -22,7 +22,7 @@ class CruisePlanningController extends Controller
         $end = $days->last()->day_date;
 
         return view('cruisePlanning.index', [
-            'days' =>  $days,
+            'days' => $days,
             'venues' => Room::OwnedVenues()->get(),
             'promotions' => Promotion::ByDate($start, $end)->get(),
             'title' => $cruise,

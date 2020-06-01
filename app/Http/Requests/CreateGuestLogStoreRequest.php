@@ -28,7 +28,6 @@ class CreateGuestLogStoreRequest extends FormRequest
             'booking_reference' => 'required',
             'short_description' => 'required',
             'guest_emotion' => '',
-
         ];
     }
 }

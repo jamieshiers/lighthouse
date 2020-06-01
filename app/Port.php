@@ -11,12 +11,7 @@ class Port extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'country_id',
-        'image',
-        'description',
-    ];
+    protected $fillable = ['name', 'country_id', 'image', 'description'];
 
     /**
      * The attributes that should be cast to native types.
@@ -27,7 +22,6 @@ class Port extends Model
         'id' => 'integer',
         'country_id' => 'integer',
     ];
-
 
     public function country()
     {

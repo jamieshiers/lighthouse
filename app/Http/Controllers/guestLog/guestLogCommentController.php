@@ -28,7 +28,6 @@ class guestLogCommentController
         // Grad a list of all the guests
 
         return view('guestLog.create', []);
-
     }
 
     public function store(CreateGuestLogStoreRequest $request)
@@ -45,13 +44,13 @@ class guestLogCommentController
             'short_description' => $request->short_description,
             'status' => GuestLogStatus::OPEN,
             'guest_emotion' => $request->guest_emotion,
-            'opened_by' => Auth::user()->id
+            'opened_by' => Auth::user()->id,
         ]);
 
         $guestLogComment = GuestLogComment::create([
             'guest_log_id' => $log_number,
             'comment_text' => $request->comment_text,
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id,
         ]);
 
         mail::to($user_email)->send(new GuestLogCreated());
@@ -63,22 +62,26 @@ class guestLogCommentController
 
     public function closeLog(string $log_number)
     {
-
-        // TODO: Finish this section for closing logs
         $log = GuestLog::find($log_number);
 
+        $log->status = GuestLogStatus::CLOSED;
+
+        $log->save();
+
+        return redirect()->route('guestLog.index');
     }
 
-
-    public function update(string $log_number, GuestLogResponseStoreRequest $request)
-    {
+    public function update(
+        string $log_number,
+        GuestLogResponseStoreRequest $request
+    ) {
         $log = GuestLog::find($log_number);
         $log->touch();
 
         $comment = GuestLogComment::create([
             'guest_log_id' => $log_number,
             'comment_text' => $request->response,
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id,
         ]);
 
         return redirect()->route('guestLog.view', $log_number);

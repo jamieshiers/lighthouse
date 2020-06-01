@@ -6,11 +6,9 @@ use Illuminate\View\Component;
 
 class formButton extends Component
 {
-
     public string $class;
 
     public string $action;
-
 
     /**
      * Create a new component instance.
