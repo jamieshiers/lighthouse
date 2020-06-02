@@ -9,6 +9,7 @@ use App\GuestLogComment;
 use App\Http\Requests\CreateGuestLogStoreRequest;
 use App\Http\Requests\GuestLogResponseStoreRequest;
 use App\Mail\GuestLogCreated;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -25,7 +26,7 @@ class guestLogCommentController
     {
         // Grab a list of all areas of responsibilty -> linked directly to users
 
-        // Grad a list of all the guests
+        // Grad a list of all the guests -> Maybe that its best to use livewire here to incorporate search features
 
         return view('guestLog.create', []);
     }
@@ -44,13 +45,13 @@ class guestLogCommentController
             'short_description' => $request->short_description,
             'status' => GuestLogStatus::OPEN,
             'guest_emotion' => $request->guest_emotion,
-            'opened_by' => Auth::user()->id,
+            'opened_by' => $request->user()->id,
         ]);
 
         $guestLogComment = GuestLogComment::create([
             'guest_log_id' => $log_number,
             'comment_text' => $request->comment_text,
-            'user_id' => Auth::user()->id,
+            'user_id' => $request->user()->id,
         ]);
 
         mail::to($user_email)->send(new GuestLogCreated());
@@ -74,14 +75,14 @@ class guestLogCommentController
     public function update(
         string $log_number,
         GuestLogResponseStoreRequest $request
-    ) {
+    ): RedirectResponse {
         $log = GuestLog::find($log_number);
         $log->touch();
 
         $comment = GuestLogComment::create([
             'guest_log_id' => $log_number,
             'comment_text' => $request->response,
-            'user_id' => Auth::user()->id,
+            'user_id' => $request->user()->id,
         ]);
 
         return redirect()->route('guestLog.view', $log_number);
