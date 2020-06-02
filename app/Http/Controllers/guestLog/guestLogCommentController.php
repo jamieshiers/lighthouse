@@ -24,11 +24,7 @@ class guestLogCommentController
 
     public function create()
     {
-        // Grab a list of all areas of responsibilty -> linked directly to users
-
-        // Grad a list of all the guests -> Maybe that its best to use livewire here to incorporate search features
-
-        return view('guestLog.create', []);
+        return view('guestLog.create');
     }
 
     public function store(CreateGuestLogStoreRequest $request)
@@ -68,6 +64,8 @@ class guestLogCommentController
         $log->status = GuestLogStatus::CLOSED;
 
         $log->save();
+
+        flash()->success('The log has been closed successfully');
 
         return redirect()->route('guestLog.index');
     }

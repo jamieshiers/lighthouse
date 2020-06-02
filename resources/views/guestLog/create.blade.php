@@ -2,8 +2,6 @@
 
 @section('content')
 
-    <form method="post" action="{{ route('guestLog.store') }}">
-
-    </form>
+    @livewire('create-guest-logform')
 
 @endsection
