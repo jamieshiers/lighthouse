@@ -3,7 +3,7 @@
 namespace App;
 
 use App\Room;
-Use App\User;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Fleet extends Model
@@ -13,11 +13,7 @@ class Fleet extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'fleet',
-        'ship_name',
-        'ship_code',
-    ];
+    protected $fillable = ['fleet', 'ship_name', 'ship_code'];
 
     public function venues()
     {

@@ -13,14 +13,23 @@ class Room extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'name', 'short_name', 'capacity', 'category', 'ship_id',
+        'user_id',
+        'name',
+        'short_name',
+        'capacity',
+        'category',
+        'ship_id',
     ];
 
     public static function search($query)
     {
-        return empty($query) ? static::query()
-            : static::where('short_name', 'like', '%'.$query.'%')
-                ->orWhere('fleets.ship_name', 'like', '%'.$query.'%');
+        return empty($query)
+            ? static::query()
+            : static::where('short_name', 'like', '%' . $query . '%')->orWhere(
+                'fleets.ship_name',
+                'like',
+                '%' . $query . '%'
+            );
     }
 
     public function owners()

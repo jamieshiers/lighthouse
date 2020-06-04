@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use App\Enums\GuestLogStatus;
 use phpDocumentor\Reflection\Types\Integer;
-Use Carbon\Carbon;
+use Carbon\Carbon;
 
 class GuestLog extends Model
 {
-
     public $incrementing = false;
 
     protected $primaryKey = 'log_number';
@@ -29,7 +28,7 @@ class GuestLog extends Model
         'guest_emotion',
         'opened_by',
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 
     /**
@@ -41,11 +40,7 @@ class GuestLog extends Model
         'id' => 'integer',
     ];
 
-    protected $dates = [
-        'created_at',
-        'updated_at',
-    ];
-
+    protected $dates = ['created_at', 'updated_at'];
 
     public function ScopeMyOpenGuestLogs(Builder $query): void
     {
@@ -58,11 +53,15 @@ class GuestLog extends Model
             ->orderBy('created_at');
     }
 
-    public function scopeGetFullGuestLog(Builder $query, string $log_number): void
-    {
+    public function scopeGetFullGuestLog(Builder $query, string $log_number): void {
         $query
             ->where('log_number', '=', $log_number)
-            ->with(['guest', 'user', 'guestLogComments', 'guestLogComments.user'])
+            ->with([
+                'guest',
+                'user',
+                'guestLogComments',
+                'guestLogComments.user',
+            ])
             ->orderBy('updated_at');
     }
 
@@ -80,10 +79,13 @@ class GuestLog extends Model
             ->with('user');
     }
 
-
     public function guestLogComments()
     {
-        return $this->hasMany(\App\GuestLogComment::class, 'guest_log_id', 'log_number');
+        return $this->hasMany(
+            \App\GuestLogComment::class,
+            'guest_log_id',
+            'log_number'
+        );
     }
 
     public function user()
@@ -93,8 +95,10 @@ class GuestLog extends Model
 
     public function guest()
     {
-        return $this->belongsTo(\App\Guest::class, 'booking_reference', 'booking_reference');
+        return $this->belongsTo(
+            \App\Guest::class,
+            'booking_reference',
+            'booking_reference'
+        );
     }
-
-
 }
