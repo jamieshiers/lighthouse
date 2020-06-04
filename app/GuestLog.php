@@ -53,10 +53,7 @@ class GuestLog extends Model
             ->orderBy('created_at');
     }
 
-    public function scopeGetFullGuestLog(
-        Builder $query,
-        string $log_number
-    ): void {
+    public function scopeGetFullGuestLog(Builder $query, string $log_number): void {
         $query
             ->where('log_number', '=', $log_number)
             ->with([

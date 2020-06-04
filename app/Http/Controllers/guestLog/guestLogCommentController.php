@@ -4,11 +4,13 @@ namespace App\Http\Controllers\guestLog;
 
 use App\Enums\GuestLogStatus;
 use App\Fleet;
+use App\Guest;
 use App\GuestLog;
 use App\GuestLogComment;
 use App\Http\Requests\CreateGuestLogStoreRequest;
 use App\Http\Requests\GuestLogResponseStoreRequest;
 use App\Mail\GuestLogCreated;
+use App\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -22,8 +24,23 @@ class guestLogCommentController
         ]);
     }
 
+    public function guestDashboard(string $booking_reference)
+    {
+        return view('guestLog.guestDashboard', [
+            'guests' => Guest::find($booking_reference),
+            'logs' => GuestLog::where('booking_reference', '=', $booking_reference)->get(),
+        ]);
+    }
+
+    public function addNewGuestLog(string $booking_reference)
+    {
+
+        return view('guestLog.add', [ 'guest' => Guest::find($booking_reference)]);
+    }
+
     public function create()
     {
+        // returns the view for Livewire
         return view('guestLog.create');
     }
 
@@ -46,7 +63,7 @@ class guestLogCommentController
 
         $guestLogComment = GuestLogComment::create([
             'guest_log_id' => $log_number,
-            'comment_text' => $request->comment_text,
+            'comment_text' => $request->comment,
             'user_id' => $request->user()->id,
         ]);
 

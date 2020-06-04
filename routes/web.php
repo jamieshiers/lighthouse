@@ -16,6 +16,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/', guestLog\guestLogIndexController::class)->name('guestLog.index');
         //Add New Log
         Route::get('/add', [guestLogCommentController::class, 'create'])->name('guestLog.create');
+        Route::get('/show/{boooking_reference}', [guestLogCommentController::class, 'guestdashboard'])->name('guest.show');
+        Route::get('/show/{boooking_reference}/add', [guestLogCommentController::class, 'addNewGuestLog'])->name('guestLog.add');
         Route::post('/', [guestLogCommentController::class, 'store'])->name('guestLog.store');
        // Details View
        Route::get('/{log_number}', [guestLogCommentController::class, 'view'])->name('guestLog.view');

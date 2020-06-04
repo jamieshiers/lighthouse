@@ -27,7 +27,9 @@ class CreateGuestLogStoreRequest extends FormRequest
             'user_id' => 'required',
             'booking_reference' => 'required',
             'short_description' => 'required',
-            'guest_emotion' => '',
+            'guest_emotion' => 'required',
+            'comment' => 'required',
+
         ];
     }
 }

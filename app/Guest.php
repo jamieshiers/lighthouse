@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Guest extends Model
 {
+    protected $primaryKey = 'booking_reference';
+
+    public $incrementing = false;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -18,14 +22,5 @@ class Guest extends Model
         'first_name',
         'last_name',
         'birthday',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'id' => 'integer',
     ];
 }

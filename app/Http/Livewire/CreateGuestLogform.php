@@ -8,18 +8,20 @@ use Livewire\Component;
 class CreateGuestLogform extends Component
 {
 
-    public  $query = '';
-    public  $guests = [];
-    public  $highlightIndex = 0;
+    public $query;
+    public $guests;
+    public $highlightIndex;
 
     public function mount()
     {
-        $this->reset();
+        $this->query = '';
+        $this->guests = [];
+        $this->highlightIndex = 0;
     }
 
-    public function reset($query, $guests, $highlightIndex)
+    public function resetProps()
     {
-
+        $this->reset([$query, $guests, $highlightIndex]);
     }
 
     public function incrementHighlight()
@@ -35,7 +37,7 @@ class CreateGuestLogform extends Component
     public function decrementHighlight()
     {
         if ($this->highlightIndex === 0) {
-            $this->highlightIndex = count($this->contacts) - 1;
+            $this->highlightIndex = count($this->guests) - 1;
             return;
         }
         $this->highlightIndex--;
@@ -46,18 +48,17 @@ class CreateGuestLogform extends Component
         $guest = $this->guests[$this->highlightIndex] ?? null;
         if($guest)
         {
-            $this->redirect(route('guest.show', $guest[booking_reference]));
+            $this->redirect(route('guest.show', $guest['booking_reference']));
         }
     }
 
     public function updatedQuery()
     {
-        $this->guests = Guest::where('last_name', 'like', '%' . $this->query . '%')
+        $this->guests = Guest::where('last_name', 'like', '%' . $this->query . '%')->orWhere('booking_reference', 'like', '%'
+            . $this->query . '%')
             ->get()
             ->toArray();
     }
-
-
 
     public function render()
     {
