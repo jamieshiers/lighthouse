@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class GuestLogComment extends Model
 {
     /**
@@ -12,11 +11,7 @@ class GuestLogComment extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'guest_log_id',
-        'comment_text',
-        'user_id',
-    ];
+    protected $fillable = ['guest_log_id', 'comment_text', 'user_id'];
 
     /**
      * The attributes that should be cast to native types.
@@ -29,11 +24,13 @@ class GuestLogComment extends Model
 
     //protected $touches = ['guestLog'];
 
-
-
     public function guestLog()
     {
-        return $this->belongsTo(\App\GuestLog::class, 'log_number', 'guest_log_id');
+        return $this->belongsTo(
+            \App\GuestLog::class,
+            'log_number',
+            'guest_log_id'
+        );
     }
 
     public function user()

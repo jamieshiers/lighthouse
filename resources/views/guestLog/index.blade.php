@@ -2,6 +2,9 @@
 
 @section('content')
     <div>
+        @if (flash()->message)
+            @if(flash()->level === 'success')<x-flash.success>{{ flash()->message }}</x-flash.success>@endif
+        @endif
         <h2 class="pt-6 mb-4 text-lg font-bold">My Open Logs</h2>
        <div class="bg-white shadow overflow-hidden sm:rounded-md">
 

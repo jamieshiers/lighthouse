@@ -2,9 +2,8 @@
 
 namespace App\Enums;
 
-Class GuestLogStatus {
-
+class GuestLogStatus
+{
     const OPEN = 'Open';
     const CLOSED = 'Closed';
-
 }

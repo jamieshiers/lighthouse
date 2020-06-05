@@ -52,7 +52,6 @@ class Itinerary extends Model
         'sunset',
     ];
 
-
     public function port()
     {
         return $this->belongsTo(\App\Port::class);

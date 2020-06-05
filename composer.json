@@ -5,7 +5,7 @@
     "keywords": [],
     "license": "MIT",
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.4",
         "driesvints/blade-icons": "^2.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
@@ -15,11 +15,13 @@
         "laravel/ui": "^2.0",
         "livewire/livewire": "^1.0",
         "ramsey/uuid": "^4.0",
+        "spatie/laravel-flash": "^1.6",
         "spatie/laravel-permission": "^3.11"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.3",
         "barryvdh/laravel-ide-helper": "^2.7",
+        "beyondcode/helo-laravel": "^1.0",
         "beyondcode/laravel-er-diagram-generator": "^1.4",
         "facade/ignition": "^2.0",
         "fzaninotto/faker": "^1.4",
@@ -68,6 +70,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "fix-cs": [
+            "prettier App/ --write"
         ]
     }
 }

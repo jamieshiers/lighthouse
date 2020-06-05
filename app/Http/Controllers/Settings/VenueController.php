@@ -12,7 +12,6 @@ use Illuminate\View\View;
 
 class VenueController extends Controller
 {
-
     /**
      *  Display a listing of all the Venues.
      *
@@ -33,7 +32,9 @@ class VenueController extends Controller
         $owners = user::all();
         $ships = Fleet::all();
 
-        return view('rooms.create')->with('owners', $owners)->with('ships', $ships);
+        return view('rooms.create')
+            ->with('owners', $owners)
+            ->with('ships', $ships);
     }
 
     public function store(VenueStoreRequest $request)

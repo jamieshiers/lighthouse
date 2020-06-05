@@ -37,11 +37,7 @@ class DayActivity extends Model
      *
      * @var array
      */
-    protected $dates = [
-        'start',
-        'finish',
-    ];
-
+    protected $dates = ['start', 'finish'];
 
     public function promotion()
     {
