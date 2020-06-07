@@ -1,10 +1,52 @@
 @extends('layouts.app')
 
+@section('title', 'Guest Logs')
+
 @section('content')
     <div>
         @if (flash()->message)
             @if(flash()->level === 'success')<x-flash.success>{{ flash()->message }}</x-flash.success>@endif
         @endif
+
+            <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="px-4 py-5 sm:p-6">
+                        <dl>
+                            <dt class="text-sm leading-5 font-medium text-gray-500 truncate">
+                                Total Guest Logs
+                            </dt>
+                            <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
+                                {{ $counts->total  }}
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="px-4 py-5 sm:p-6">
+                        <dl>
+                            <dt class="text-sm leading-5 font-medium text-gray-500 truncate">
+                                Open Logs
+                            </dt>
+                            <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
+                                {{ $counts->open }}
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="px-4 py-5 sm:p-6">
+                        <dl>
+                            <dt class="text-sm leading-5 font-medium text-gray-500 truncate">
+                                Logs Requiring my Attention
+                            </dt>
+                            <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
+                                {{ $logs->count() }}
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
         <h2 class="pt-6 mb-4 text-lg font-bold">My Open Logs</h2>
        <div class="bg-white shadow overflow-hidden sm:rounded-md">
 
