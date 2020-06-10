@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout title="View Guest Log">
     <div class="md:grid md:grid-cols-5">
         <div class="md:col-span-1 bg-gray-100 h-full">
             <h1>Left Sidebar</h1>
@@ -106,4 +104,4 @@
 
     </div>
 
-@endsection
+</x-app-layout>

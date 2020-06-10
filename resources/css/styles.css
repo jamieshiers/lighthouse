@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+
+.emotion input {
+  appearance: none;
+}
+
+.emotion span {
+  @apply border-gray-300 border rounded-md p-6 text-5xl inline-block;
+  cursor: pointer;
+  filter: grayscale(1);
+}
+
+.emotion span:hover {
+  filter: none;
+}
+
+.emotion input:active {
+  filter: none;
+}
+
+.emotion input:checked+span{
+  filter: none;
+}
+
+
+@tailwind utilities;

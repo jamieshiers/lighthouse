@@ -6,7 +6,6 @@
                 <x-flash.success>{{ flash()->message }}</x-flash.success>
             @endif
         @endif
-
         <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
             <div class="bg-white overflow-hidden shadow rounded-lg">
                 <div class="px-4 py-5 sm:p-6">

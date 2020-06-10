@@ -10,7 +10,7 @@
     <title>{{ $title }} | Parola</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/output.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
