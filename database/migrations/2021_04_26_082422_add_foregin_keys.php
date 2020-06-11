@@ -34,7 +34,7 @@ class AddForeginKeys extends Migration
 
         Schema::table('guest_log_comments', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('guestLog_id')->references('log_number')->on('guest_logs');
+            $table->foreign('guest_log_id')->references('log_number')->on('guest_logs');
         });
 
     }

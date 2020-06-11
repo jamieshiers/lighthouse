@@ -135,11 +135,5 @@ class venueTest extends TestCase
             ->assertSee('Test Venue (Deck 6) Forward')
             ->assertDontSee('Test Venue (Deck 7) Forward')
             ->assertSuccessful();
-
-
-
-
     }
-
-
 }

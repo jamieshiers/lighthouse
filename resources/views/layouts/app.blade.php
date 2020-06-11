@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Lighthouse | H.I.P.S</title>
+    <title>@yield('title') | Parola</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/output.css') }}" rel="stylesheet">
@@ -20,12 +20,17 @@
     <!-- Header -->
     @include('layouts.partials.header')
 
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        @yield('content')
+    <div class="max-w-7xl mx-auto py-2 sm:px-6 lg:px-8 bg-gray-100">
+        <div class="">
+            @yield('content')
+        </div>
     </div>
+    </main>
+    </div>
+
         <!-- /End replace -->
 
-    <div class="pt-8">
+    <div class="pt-8 bg-gray-100">
         <div class="max-w-screen-xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
             <nav class="-mx-5 -my-2 flex flex-wrap justify-center">
                 <div class="px-5 py-2">

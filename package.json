@@ -20,10 +20,13 @@
         "prettier": "2.0.4",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.26.7",
-        "sass-loader": "^8.0.0"
+        "sass-loader": "^8.0.0",
+        "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
         "@tailwindcss/ui": "^0.2.2",
-        "tailwindcss": "^1.4.6"
+        "postcss-import": "^12.0.1",
+        "tailwindcss": "^1.4.6",
+        "tailwindcss-filters": "^3.0.0"
     }
 }
