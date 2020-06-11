@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Enums\GuestLogStatus;
 use phpDocumentor\Reflection\Types\Integer;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class GuestLog extends Model
 {
@@ -63,6 +64,17 @@ class GuestLog extends Model
                 'guestLogComments.user',
             ])
             ->orderBy('updated_at');
+    }
+
+    public static function DashboardCounts(): object
+    {
+        $query = DB::table('guest_logs')
+            ->selectRaw("Count(*) as total")
+            ->selectRaw("Count(case when status = 'Open' then 1 end) as open")
+            ->selectRaw("Count(case when status = 'Closed' then 1 end) as closed")
+            ->first();
+
+        return $query;
     }
 
     public function ScopeCountOpenLogs(builder $query): void

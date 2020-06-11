@@ -14,13 +14,13 @@ class CreateGuestLogsTable extends Migration
     public function up()
     {
         Schema::create('guest_logs', function (Blueprint $table) {
-            $table->string('log_number', 20);
-            $table->integer('user_id', 10)->unsigned();
+            $table->string('log_number', 20)->primary();
+            $table->integer('user_id')->unsigned();
             $table->string('booking_reference', 10);
             $table->string('short_description', 140);
             $table->enum('status', ["Closed","Open"]);
             $table->integer('guest_emotion');
-            $table->integer('opened_by');
+            $table->integer('opened_by')->unsigned();
             $table->timestamps();
         });
     }

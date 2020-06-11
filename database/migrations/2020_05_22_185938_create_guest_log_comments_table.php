@@ -15,9 +15,9 @@ class CreateGuestLogCommentsTable extends Migration
     {
         Schema::create('guest_log_comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('guest_Log_id');
+            $table->string('guest_log_id');
             $table->longText('comment_text');
-            $table->integer('user_id', 10)->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }
