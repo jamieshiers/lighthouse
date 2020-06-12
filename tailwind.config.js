@@ -29,5 +29,6 @@ module.exports = {
             layout: 'sidebar',
         }),
         require('tailwindcss-filters'),
+        require('@tailwindcss/custom-forms'),
     ],
 };
