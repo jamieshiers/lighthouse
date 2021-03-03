@@ -2,15 +2,15 @@
 
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder
+class RoomsTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeders.
      *
      * @return void
      */
     public function run()
     {
-        factory(App\User::class, 10)->create();
+        factory(App\Room::class, 10)->create();
     }
 }

@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
         Route::get('venues/{id}/edit', 'settings\VenueController@edit')->name('venues.edit');
     });
 
-    Route::livewire('/planning/{cruise}', 'planning.planner')->name('planning');
+    //Route::livewire('/planning/{cruise}', 'planning.planner')->name('planning');
 });
 
 
