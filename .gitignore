@@ -13,4 +13,7 @@ npm-debug.log
 yarn-error.log
 draft.yaml
 /.blueprint
+.idea
+.DS_Store
+
 
