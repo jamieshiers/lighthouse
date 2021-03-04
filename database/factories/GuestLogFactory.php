@@ -10,7 +10,7 @@ $factory->define(GuestLog::class, function (Faker $faker) {
         'user_id' => $faker->randomNumber(),
         'booking_reference' => $faker->word,
         'short_description' => $faker->word,
-        'status' => $faker->randomElement(["Closed",""]),
+        'status' => $faker->randomElement(['Closed', '']),
         'guest_emotion' => $faker->randomNumber(),
         'opened_by' => $faker->randomNumber(),
     ];

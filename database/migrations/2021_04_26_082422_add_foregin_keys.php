@@ -36,7 +36,6 @@ class AddForeginKeys extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('guest_log_id')->references('log_number')->on('guest_logs');
         });
-
     }
 
     /**

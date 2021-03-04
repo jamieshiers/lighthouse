@@ -6,7 +6,6 @@ use Illuminate\View\Component;
 
 class appLayout extends Component
 {
-
     public string $title;
 
     /**

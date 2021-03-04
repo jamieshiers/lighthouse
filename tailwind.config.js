@@ -1,18 +1,18 @@
-
-
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     theme: {
-        filter: { // defaults to {}
-            'none': 'none',
-            'grayscale': 'grayscale(1)',
-            'invert': 'invert(1)',
-            'sepia': 'sepia(1)',
+        filter: {
+            // defaults to {}
+            none: 'none',
+            grayscale: 'grayscale(1)',
+            invert: 'invert(1)',
+            sepia: 'sepia(1)',
         },
-        backdropFilter: { // defaults to {}
-            'none': 'none',
-            'blur': 'blur(20px)',
+        backdropFilter: {
+            // defaults to {}
+            none: 'none',
+            blur: 'blur(20px)',
         },
     },
     variants: {
@@ -22,8 +22,8 @@ module.exports = {
     extend: {
         fontFamily: {
             sans: ['Inter Var', ...defaultTheme.fontFamily.sans],
-            },
         },
+    },
     plugins: [
         require('@tailwindcss/ui')({
             layout: 'sidebar',

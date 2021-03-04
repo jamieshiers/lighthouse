@@ -2,13 +2,13 @@
 
 namespace App;
 
+use App\Enums\GuestLogStatus;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
-use App\Enums\GuestLogStatus;
-use phpDocumentor\Reflection\Types\Integer;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use phpDocumentor\Reflection\Types\Integer;
 
 class GuestLog extends Model
 {
@@ -54,7 +54,8 @@ class GuestLog extends Model
             ->orderBy('created_at');
     }
 
-    public function scopeGetFullGuestLog(Builder $query, string $log_number): void {
+    public function scopeGetFullGuestLog(Builder $query, string $log_number): void
+    {
         $query
             ->where('log_number', '=', $log_number)
             ->with([
@@ -69,7 +70,7 @@ class GuestLog extends Model
     public static function DashboardCounts(): object
     {
         $query = DB::table('guest_logs')
-            ->selectRaw("Count(*) as total")
+            ->selectRaw('Count(*) as total')
             ->selectRaw("Count(case when status = 'Open' then 1 end) as open")
             ->selectRaw("Count(case when status = 'Closed' then 1 end) as closed")
             ->first();

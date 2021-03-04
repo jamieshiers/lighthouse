@@ -13,7 +13,7 @@ class AddGesturesTable extends Migration
      */
     public function up()
     {
-        schema::create('gestures', function(Blueprint $table) {
+        schema::create('gestures', function (Blueprint $table) {
             $table->id();
             $table->string('gesture_name');
             $table->enum('gesture_type', ['Reservation', 'Credit']);

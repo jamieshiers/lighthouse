@@ -18,7 +18,7 @@ it('can_view_specfic_guest_log', function () {
     $guest = factory(\App\Guest::class)->create([
         'booking_reference' => 'WRF6654-1',
         'cabin' => 'A212',
-        'berth' => '1'
+        'berth' => '1',
     ]);
 
     //create the log
@@ -31,8 +31,6 @@ it('can_view_specfic_guest_log', function () {
     //create some comments
     $comments = factory(\App\GuestLogComment::class, 3)->create([
         'guest_log_id' => 'VE20200525-001',
-        'user_id' => Auth::user()->id
+        'user_id' => Auth::user()->id,
     ]);
-
 });
-
