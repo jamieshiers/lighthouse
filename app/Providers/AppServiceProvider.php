@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Spatie\Flash\Flash;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,13 +11,9 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register(): void
+    public function register()
     {
-        if ($this->app->environment() !== 'production') {
-            $this->app->register(
-                \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
-            );
-        }
+        //
     }
 
     /**
@@ -26,12 +21,8 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(): void
+    public function boot()
     {
-        Flash::levels([
-            'success' => 'alert-success',
-            'warning' => 'alert-warning',
-            'error' => 'alert-error',
-        ]);
+        //
     }
 }
