@@ -15,5 +15,5 @@ draft.yaml
 /.blueprint
 .idea
 .DS_Store
-
+.editorconfig
 
