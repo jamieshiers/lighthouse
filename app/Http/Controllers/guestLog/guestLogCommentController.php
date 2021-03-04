@@ -34,8 +34,7 @@ class guestLogCommentController
 
     public function addNewGuestLog(string $booking_reference)
     {
-
-        return view('guestLog.add', [ 'guest' => Guest::find($booking_reference)]);
+        return view('guestLog.add', ['guest' => Guest::find($booking_reference)]);
     }
 
     public function create()
@@ -47,7 +46,7 @@ class guestLogCommentController
     public function store(CreateGuestLogStoreRequest $request)
     {
         $ship_code = Fleet::find(Auth::user()->ship_id)->ship_code;
-        $log_number = $ship_code . time();
+        $log_number = $ship_code.time();
 
         $user_email = User::find($request->user_id)->email;
 

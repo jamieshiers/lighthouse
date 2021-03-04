@@ -7,7 +7,6 @@ use Livewire\Component;
 
 class CreateGuestLogform extends Component
 {
-
     public $query;
     public $guests;
     public $highlightIndex;
@@ -26,9 +25,9 @@ class CreateGuestLogform extends Component
 
     public function incrementHighlight()
     {
-        if ($this->highlightIndex === count($this->guests) - 1)
-        {
+        if ($this->highlightIndex === count($this->guests) - 1) {
             $this->highlightIndex = 0;
+
             return;
         }
         $this->highlightIndex++;
@@ -38,6 +37,7 @@ class CreateGuestLogform extends Component
     {
         if ($this->highlightIndex === 0) {
             $this->highlightIndex = count($this->guests) - 1;
+
             return;
         }
         $this->highlightIndex--;
@@ -46,16 +46,15 @@ class CreateGuestLogform extends Component
     public function selectGuest()
     {
         $guest = $this->guests[$this->highlightIndex] ?? null;
-        if($guest)
-        {
+        if ($guest) {
             $this->redirect(route('guest.show', $guest['booking_reference']));
         }
     }
 
     public function updatedQuery()
     {
-        $this->guests = Guest::where('last_name', 'like', '%' . $this->query . '%')->orWhere('booking_reference', 'like', '%'
-            . $this->query . '%')
+        $this->guests = Guest::where('last_name', 'like', '%'.$this->query.'%')->orWhere('booking_reference', 'like', '%'
+            .$this->query.'%')
             ->get()
             ->toArray();
     }

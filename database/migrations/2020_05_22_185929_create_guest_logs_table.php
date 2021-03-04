@@ -18,7 +18,7 @@ class CreateGuestLogsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('booking_reference', 10);
             $table->string('short_description', 140);
-            $table->enum('status', ["Closed","Open"]);
+            $table->enum('status', ['Closed', 'Open']);
             $table->integer('guest_emotion');
             $table->integer('opened_by')->unsigned();
             $table->timestamps();

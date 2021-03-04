@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\guestLog\guestLogCommentController;
 
-
 Route::get('/', 'HomeController@index');
 
 Auth::routes();
@@ -19,11 +18,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/show/{boooking_reference}', [guestLogCommentController::class, 'guestdashboard'])->name('guest.show');
         Route::get('/show/{boooking_reference}/add', [guestLogCommentController::class, 'addNewGuestLog'])->name('guestLog.add');
         Route::post('/', [guestLogCommentController::class, 'store'])->name('guestLog.store');
-       // Details View
-       Route::get('/{log_number}', [guestLogCommentController::class, 'view'])->name('guestLog.view');
-       Route::post('/{log_number}/close', [guestLogCommentController::class, 'closeLog'])->name('guestLog.closeLog');
-       Route::post('/{log_number}/update', [guestLogCommentController::class, 'update'])->name('guestLog.update');
-
+        // Details View
+        Route::get('/{log_number}', [guestLogCommentController::class, 'view'])->name('guestLog.view');
+        Route::post('/{log_number}/close', [guestLogCommentController::class, 'closeLog'])->name('guestLog.closeLog');
+        Route::post('/{log_number}/update', [guestLogCommentController::class, 'update'])->name('guestLog.update');
     });
 
     Route::prefix('settings')->group(function () {
@@ -34,7 +32,6 @@ Route::middleware('auth')->group(function () {
 
     //Route::livewire('/planning/{cruise}', 'planning.planner')->name('planning');
 });
-
 
 Route::resource('promotions', 'PromotionsController')->only('index', 'store');
 

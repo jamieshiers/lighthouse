@@ -4,18 +4,17 @@ namespace Tests\Feature;
 
 use App\Room;
 use App\User;
+use Faker\Generator as Faker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
-use Tests\TestCase;
 use Livewire\Livewire;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use Faker\Generator as Faker;
+use Spatie\Permission\Models\Role;
+use Tests\TestCase;
 
 class venueTest extends TestCase
 {
-
     use WithFaker;
 
     public function setUp(): void
@@ -29,14 +28,14 @@ class venueTest extends TestCase
     }
 
     /** @test */
-    function user_is_redirected_if_not_logged_in()
+    public function user_is_redirected_if_not_logged_in()
     {
         $this->get(route('venues.index'))
             ->assertRedirect('login');
     }
 
     /** @test */
-    function  venues_page_contains_a_livewire_component()
+    public function venues_page_contains_a_livewire_component()
     {
         $user = User::get('11');
         Auth::login($user);
@@ -47,7 +46,7 @@ class venueTest extends TestCase
     }
 
     /** @test */
-    function user_without_create_venues_permission_cant_see_the_create_button()
+    public function user_without_create_venues_permission_cant_see_the_create_button()
     {
         auth()->login(factory(User::class)->create());
 
@@ -57,7 +56,7 @@ class venueTest extends TestCase
     }
 
     /** @test */
-    function user_with_create_venues_permission_can_see_the_create_button()
+    public function user_with_create_venues_permission_can_see_the_create_button()
     {
         auth()->login(factory(User::class)->create());
 
@@ -69,7 +68,7 @@ class venueTest extends TestCase
     }
 
     /** @test */
-    function user_without_edit_venues_permission_cant_see_the_edit_button()
+    public function user_without_edit_venues_permission_cant_see_the_edit_button()
     {
         auth()->login(factory(User::class)->create());
 
@@ -88,7 +87,7 @@ class venueTest extends TestCase
     }
 
     /** @test */
-    function user_with_edit_venues_permission_can_see_the_edit_button()
+    public function user_with_edit_venues_permission_can_see_the_edit_button()
     {
         auth()->login(factory(User::class)->create());
 
@@ -109,7 +108,7 @@ class venueTest extends TestCase
     }
 
     /** @test */
-    function ship_user_can_only_see_venues_on_there_ship()
+    public function ship_user_can_only_see_venues_on_there_ship()
     {
         auth()->login(factory(User::class)->create());
 
