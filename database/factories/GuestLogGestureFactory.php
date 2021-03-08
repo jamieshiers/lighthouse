@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\GuestLog_Gesture;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\GuestLog_Gesture;
 
 class GuestLogGestureFactory extends Factory
 {
