@@ -37,7 +37,6 @@ class GuestLogGesture extends Model
         'id' => 'integer',
     ];
 
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */

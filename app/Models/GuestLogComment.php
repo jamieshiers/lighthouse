@@ -37,7 +37,6 @@ class GuestLogComment extends Model
         'id' => 'integer',
     ];
 
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

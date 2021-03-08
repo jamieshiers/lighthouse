@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\GuestLog;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\GuestLog;
 
 class GuestLogFactory extends Factory
 {
@@ -27,7 +27,7 @@ class GuestLogFactory extends Factory
             'user_id' => $this->faker->numberBetween(-10000, 10000),
             'booking_reference' => $this->faker->word,
             'short_description' => $this->faker->text,
-            'status' => $this->faker->randomElement(["open","closed"]),
+            'status' => $this->faker->randomElement(['open', 'closed']),
             'guest_emotion' => $this->faker->numberBetween(-10000, 10000),
             'opened_by' => $this->faker->numberBetween(-10000, 10000),
         ];
