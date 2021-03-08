@@ -20,3 +20,9 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+Route::resource('guest', App\Http\Controllers\GuestController::class)->only('index');
+
+
+Route::resource('gesture', App\Http\Controllers\GestureController::class)->only('index');
