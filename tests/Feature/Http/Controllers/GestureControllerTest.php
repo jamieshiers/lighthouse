@@ -27,7 +27,6 @@ class GestureControllerTest extends TestCase
         $response->assertViewHas('gestures');
     }
 
-
     /**
      * @test
      */
