@@ -25,7 +25,6 @@ Route::resource('guest', App\Http\Controllers\GuestController::class)->only('ind
 
 Route::resource('gesture', App\Http\Controllers\GestureController::class)->only('index');
 
-
 Route::resource('dashboard', App\Http\Controllers\DashboardController::class)->only('index');
 
 Route::resource('gesture', App\Http\Controllers\GestureController::class)->only('index');

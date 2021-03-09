@@ -29,7 +29,6 @@ class GuestLogControllerTest extends TestCase
         $response->assertViewIs('guestlog.index');
     }
 
-
     /**
      * @test
      */
@@ -40,7 +39,6 @@ class GuestLogControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('guestlog.create');
     }
-
 
     /**
      * @test
