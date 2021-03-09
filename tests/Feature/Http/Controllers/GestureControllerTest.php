@@ -24,5 +24,18 @@ class GestureControllerTest extends TestCase
 
         $response->assertOk();
         $response->assertViewIs('gesture.index');
+        $response->assertViewHas('gestures');
+    }
+
+
+    /**
+     * @test
+     */
+    public function import_displays_view(): void
+    {
+        $response = $this->get(route('gesture.import'));
+
+        $response->assertOk();
+        $response->assertViewIs('gesture.import');
     }
 }

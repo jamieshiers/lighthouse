@@ -15,6 +15,15 @@ class GestureController extends Controller
     {
         $gestures = Gesture::all();
 
-        return view('gesture.index');
+        return view('gesture.index', compact('gestures'));
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function import(Request $request): \Illuminate\Http\Response
+    {
+        return view('gesture.import');
     }
 }
