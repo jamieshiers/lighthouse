@@ -21,12 +21,18 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::prefix('gesture')->group(function ()  {
+        Route::get('/', [App\Http\Controllers\GestureController::class, 'index'])->name('gesture.index');
+    });
+});
+
 Route::resource('guest', App\Http\Controllers\GuestController::class)->only('index');
 
-Route::resource('gesture', App\Http\Controllers\GestureController::class)->only('index');
+//Route::resource('gesture', App\Http\Controllers\GestureController::class)->only('index');
 
 
-Route::resource('dashboard', App\Http\Controllers\DashboardController::class)->only('index');
+//Route::resource('dashboard', App\Http\Controllers\DashboardController::class)->only('index');
 
 Route::resource('gesture', App\Http\Controllers\GestureController::class)->only('index');
 Route::get('gesture/import', [App\Http\Controllers\GestureController::class, 'import']);

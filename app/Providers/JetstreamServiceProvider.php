@@ -62,6 +62,7 @@ class JetstreamServiceProvider extends ServiceProvider
             'read',
             'create',
             'update',
+            'server:update',
         ])->description(__('Editor users have the ability to read, create, and update.'));
     }
 }

@@ -9,9 +9,9 @@ class GestureController extends Controller
 {
     /**
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function index(Request $request): \Illuminate\Http\Response
+    public function index(Request $request): \Illuminate\View\View
     {
         $gestures = Gesture::all();
 

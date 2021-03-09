@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Guestlog;
 use App\Http\Requests\GuestLogSaveRequest;
 use App\Models\GuestLog;
 use Illuminate\Http\Request;

@@ -64,7 +64,7 @@ class GuestLog extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function created_by(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(\App\Models\User::class);
     }
