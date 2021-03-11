@@ -25,7 +25,7 @@ class GuestFactory extends Factory
         return [
             'booking_reference' => $this->faker->word,
             'cabin_number' => $this->faker->word,
-            'berth' => $this->faker->numberBetween(-10000, 10000),
+            'berth' => $this->faker->randomDigitNot([5, 6, 7, 8, 9]),
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
             'birthday' => $this->faker->date(),
