@@ -26,7 +26,6 @@ class GuestControllerTest extends TestCase
         $response->assertViewIs('guest.index');
     }
 
-
     /**
      * @test
      */
